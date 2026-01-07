@@ -22,13 +22,10 @@ export function HeroSection() {
       {/* Content */}
       <div className="container relative z-10 px-4 py-20">
         <div className="max-w-2xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/40 bg-secondary/20 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary/80" />
-            <span className="text-sm text-muted-foreground">
-              자동매매를 이해하는 곳
-            </span>
-          </div>
+          {/* Target Audience - 누가 봐야 하는지 */}
+          <p className="text-sm text-muted-foreground mb-6">
+            EA를 돌려봤지만 왜 되는지 모르겠다면, 여기서 시작하세요.
+          </p>
 
           {/* Main Heading */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-5 leading-tight text-foreground">
@@ -48,13 +45,13 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild variant="hero" size="xl">
               <Link to="/education">
-                무료 가이드 시작
+                MT5 구조 가이드 무료로 받기
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button asChild variant="ghost" size="sm" className="text-muted-foreground">
               <Link to="/marketplace">
-                EA 마켓 보기
+                EA 비교하기
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </Button>

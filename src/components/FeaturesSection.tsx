@@ -11,25 +11,25 @@ import { Link } from "react-router-dom";
 const features = [
   {
     icon: GraduationCap,
-    title: "체계적인 교육",
+    title: "설정 말고 구조",
     description: "Level 0부터 시작. MT5가 '실행 환경'인 이유부터 설명합니다.",
     link: "/education",
   },
   {
     icon: Bot,
-    title: "검증된 EA",
+    title: "판매 말고 비교",
     description: "MQL 공식 마켓 연동. 백테스트 10년치 공개.",
     link: "/marketplace",
   },
   {
     icon: Download,
-    title: "무료 자료실",
+    title: "검증된 무료 지표",
     description: "실전 검증된 지표 무료 배포. 바로 사용 가능.",
     link: "/resources",
   },
   {
     icon: Crown,
-    title: "VIP 서비스",
+    title: "1:1 세팅 지원",
     description: "1:1 세팅 지원. EA 개발 의뢰 가능.",
     link: "/vip",
   },
