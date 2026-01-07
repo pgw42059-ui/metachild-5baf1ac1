@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Education from "./pages/Education";
 import Marketplace from "./pages/Marketplace";
 import MT5Manual from "./pages/MT5Manual";
+import MT5PCGuide from "./pages/MT5PCGuide";
 import MT5MobileGuide from "./pages/MT5MobileGuide";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/education" element={<Education />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/guide/mt5-manual" element={<MT5Manual />} />
+          <Route path="/guide/mt5-pc" element={<MT5PCGuide />} />
           <Route path="/guide/mt5-mobile" element={<MT5MobileGuide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
