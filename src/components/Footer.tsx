@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 const footerLinks = {
   서비스: [
-    { label: "교육 콘텐츠", href: "/education" },
-    { label: "EA 마켓플레이스", href: "/marketplace" },
+    { label: "교육 센터", href: "/education" },
+    { label: "EA 구독하기", href: "/marketplace" },
     { label: "무료 자료실", href: "/resources" },
     { label: "VIP 서비스", href: "/vip" },
   ],
   정보: [
     { label: "이용약관", href: "/terms" },
     { label: "개인정보처리방침", href: "/privacy" },
-    { label: "자주 묻는 질문", href: "/faq" },
+    { label: "블로그", href: "/blog" },
+    { label: "유튜브", href: "https://youtube.com", external: true },
   ],
 };
 
@@ -26,19 +27,22 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-gradient">MT5 Pro</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-bold text-gradient">메린이</span>
+                <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
+              </div>
             </Link>
             <p className="text-muted-foreground text-sm mb-4 max-w-md">
-              MT5 자동매매의 모든 것. 검증된 EA와 체계적인 교육으로 
-              여러분의 트레이딩을 한 단계 업그레이드하세요.
+              메타트레이더의 모든 것. 설정이 아닌 구조로,
+              차트가 아닌 실행 환경으로 접근합니다.
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="mailto:support@mt5pro.com"
+                href="mailto:support@merini.com"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                support@mt5pro.com
+                support@merini.com
               </a>
               <a
                 href="#"
@@ -57,12 +61,23 @@ export function Footer() {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -71,12 +86,14 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2025 MT5 Pro. All rights reserved.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            투자에는 원금 손실 위험이 있습니다. 신중한 투자 결정을 하시기 바랍니다.
+        <div className="border-t border-border mt-8 pt-8 flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              © 2025 메린이 (META Child). All rights reserved.
+            </p>
+          </div>
+          <p className="text-xs text-muted-foreground text-center bg-secondary/30 rounded-lg p-3">
+            ⚠️ 투자 위험 고지: 본 서비스는 투자 조언이 아니며, 모든 투자 결정과 손실은 투자자 본인의 책임입니다. 과거 수익률이 미래 수익을 보장하지 않습니다.
           </p>
         </div>
       </div>
