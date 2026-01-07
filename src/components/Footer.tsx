@@ -1,5 +1,6 @@
-import { TrendingUp, Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import brandLogo from "@/assets/brand-logo.png";
 
 const footerLinks = {
   서비스: [
@@ -24,9 +25,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-primary" />
-              </div>
+              <img src={brandLogo} alt="메린이 로고" className="w-7 h-7" />
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-semibold text-foreground">메린이</span>
                 <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>

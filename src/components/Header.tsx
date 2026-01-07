@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { TrendingUp, BookOpen, Download, Crown, Menu, X, Youtube, Globe } from "lucide-react";
+import { BookOpen, Download, Menu, X, Globe, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import brandLogo from "@/assets/brand-logo.png";
 
 const navItems = [
   { label: "교육 센터", href: "/education", icon: BookOpen },
-  { label: "EA 마켓", href: "/marketplace", icon: TrendingUp },
+  { label: "EA 마켓", href: "/marketplace", icon: Bot },
   { label: "무료 자료", href: "/resources", icon: Download },
   { label: "커뮤니티", href: "https://community.example.com", icon: Globe, external: true },
 ];
@@ -20,12 +21,10 @@ export function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-primary" />
-              </div>
+              <img src={brandLogo} alt="메린이 로고" className="w-8 h-8" />
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-bold text-foreground">메린이</span>
-                <span className="text-[10px] text-muted-foreground">META Child</span>
+                <span className="text-[10px] text-muted-foreground tracking-wide">META Child</span>
               </div>
             </Link>
 
