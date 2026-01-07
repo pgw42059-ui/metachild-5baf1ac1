@@ -5,11 +5,9 @@ import { useState } from "react";
 
 const navItems = [
   { label: "교육 센터", href: "/education", icon: BookOpen },
-  { label: "EA 구독하기", href: "/marketplace", icon: TrendingUp },
-  { label: "무료 자료실", href: "/resources", icon: Download },
-  { label: "VIP 서비스", href: "/vip", icon: Crown },
-  { label: "유튜브", href: "https://youtube.com", icon: TrendingUp, external: true },
-  { label: "탈출그라운드", href: "https://community.example.com", icon: TrendingUp, external: true },
+  { label: "EA 마켓", href: "/marketplace", icon: TrendingUp },
+  { label: "무료 자료", href: "/resources", icon: Download },
+  { label: "커뮤니티", href: "https://community.example.com", icon: Globe, external: true },
 ];
 
 export function Header() {
@@ -21,13 +19,13 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-primary-foreground" />
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-primary" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-xl font-bold text-gradient">메린이</span>
-                <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
+                <span className="text-lg font-bold text-foreground">메린이</span>
+                <span className="text-[10px] text-muted-foreground">META Child</span>
               </div>
             </Link>
 

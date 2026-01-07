@@ -40,14 +40,14 @@ export function HeroSection() {
           </p>
 
           {/* CTA Buttons - toned down */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button variant="hero" size="lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button variant="hero" size="xl">
               무료 가이드 시작
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="glass" size="lg">
+            <Button variant="ghost" size="sm" className="text-muted-foreground">
               EA 둘러보기
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </div>
         </div>
