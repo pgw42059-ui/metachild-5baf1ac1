@@ -24,11 +24,11 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-primary-foreground" />
+              <div className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-primary" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="text-xl font-bold text-gradient">메린이</span>
+                <span className="text-lg font-semibold text-foreground">메린이</span>
                 <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
               </div>
             </Link>
