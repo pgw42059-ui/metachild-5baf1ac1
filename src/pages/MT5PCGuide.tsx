@@ -1,39 +1,66 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Monitor, Smartphone, ArrowRight, Download, LogIn, LayoutDashboard, BarChart3, ShoppingCart } from "lucide-react";
+import { Monitor, Smartphone, ArrowRight, Download, LogIn, LayoutDashboard, BarChart3, ShoppingCart, Settings, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+// Import step images
+import step1LoginMenu from "@/assets/mt5-step1-login-menu.png";
+import step2Layout from "@/assets/mt5-step2-layout.png";
+import step3ChartButtons from "@/assets/mt5-step3-chart-buttons.png";
+import step4OrderWindow from "@/assets/mt5-step4-order-window.png";
+import step5AutoTrading from "@/assets/mt5-step5-autotrading.png";
+import step6Options from "@/assets/mt5-step6-options.png";
 
 const steps = [
   {
     step: 1,
-    title: "MT5 설치하기",
-    description: "공식 다운로드 및 설치 과정",
-    icon: Download,
+    title: "로그인 & 서버 연결",
+    description: "File → Login to Trade Account 메뉴 클릭",
+    icon: LogIn,
+    image: step1LoginMenu,
+    highlight: "Login to Trade Account 선택",
   },
   {
     step: 2,
-    title: "로그인 & 서버 연결",
-    description: "계정 정보 입력과 서버 선택",
-    icon: LogIn,
+    title: "화면 구성 파악하기",
+    description: "Market Watch, Navigator, Chart 영역 이해",
+    icon: LayoutDashboard,
+    image: step2Layout,
+    highlight: "①② ③ 영역 확인",
   },
   {
     step: 3,
-    title: "화면 구성 정리",
-    description: "필요한 창만 남기고 정리하기",
-    icon: LayoutDashboard,
+    title: "차트 타입 & 타임프레임",
+    description: "캔들스틱 버튼과 시간대 설정",
+    icon: BarChart3,
+    image: step3ChartButtons,
+    highlight: "① 캔들스틱 ② 타임프레임 선택",
   },
   {
     step: 4,
-    title: "차트 열기 & 설정",
-    description: "심볼 선택, 캔들스틱, 타임프레임",
-    icon: BarChart3,
+    title: "주문 창 확인 (주의!)",
+    description: "주문 화면 구성 - Buy/Sell 클릭 금지",
+    icon: AlertTriangle,
+    image: step4OrderWindow,
+    highlight: "⚠️ 실수 클릭 주의",
+    isWarning: true,
   },
   {
     step: 5,
-    title: "주문 화면 이해하기",
-    description: "주문 창 구성과 주의사항",
-    icon: ShoppingCart,
+    title: "자동매매 버튼 상태",
+    description: "AutoTrading 버튼 - 빨간색 OFF → 초록색 ON",
+    icon: Settings,
+    image: step5AutoTrading,
+    highlight: "초록색 = 활성화",
+  },
+  {
+    step: 6,
+    title: "EA 옵션 체크리스트",
+    description: "Tools → Options → Expert Advisors 설정",
+    icon: Settings,
+    image: step6Options,
+    highlight: "3가지 체크박스 확인",
   },
 ];
 
@@ -90,24 +117,32 @@ const MT5PCGuide = () => {
             </div>
 
             {/* Step Cards */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               {steps.map((item) => (
-                <a
+                <div
                   key={item.step}
-                  href={`#step-${item.step}`}
-                  className="group block"
+                  className={`group rounded-2xl border overflow-hidden ${
+                    item.isWarning 
+                      ? 'border-destructive/40 bg-destructive/5' 
+                      : 'border-border/60 bg-secondary/20'
+                  }`}
                 >
-                  <div className="flex items-center gap-5 p-5 rounded-2xl border border-border/60 bg-secondary/20 hover:bg-secondary/40 hover:border-primary/30 transition-all duration-300">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 p-5 border-b border-border/30">
                     {/* Step Number */}
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg flex-shrink-0">
+                    <div className={`flex items-center justify-center w-10 h-10 rounded-full font-bold text-sm flex-shrink-0 ${
+                      item.isWarning 
+                        ? 'bg-destructive text-destructive-foreground' 
+                        : 'bg-primary text-primary-foreground'
+                    }`}>
                       {item.step}
                     </div>
                     
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <item.icon className="w-4 h-4 text-primary" />
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <item.icon className={`w-4 h-4 ${item.isWarning ? 'text-destructive' : 'text-primary'}`} />
+                        <h3 className="font-semibold text-foreground">
                           {item.title}
                         </h3>
                       </div>
@@ -115,16 +150,26 @@ const MT5PCGuide = () => {
                         {item.description}
                       </p>
                     </div>
-                    
-                    {/* Placeholder Image */}
-                    <div className="hidden md:flex items-center justify-center w-32 h-20 rounded-lg bg-secondary/60 border border-border/40 flex-shrink-0">
-                      <span className="text-xs text-muted-foreground/60">이미지</span>
-                    </div>
-                    
-                    {/* Arrow */}
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+
+                    {/* Highlight Badge */}
+                    <span className={`hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-medium ${
+                      item.isWarning 
+                        ? 'bg-destructive/20 text-destructive' 
+                        : 'bg-primary/10 text-primary'
+                    }`}>
+                      {item.highlight}
+                    </span>
                   </div>
-                </a>
+                  
+                  {/* Image */}
+                  <div className="p-4 bg-black/90">
+                    <img 
+                      src={item.image} 
+                      alt={`Step ${item.step}: ${item.title}`}
+                      className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
 
