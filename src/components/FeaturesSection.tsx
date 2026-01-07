@@ -42,10 +42,10 @@ export function FeaturesSection() {
         {/* Section Header - simple */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-foreground">
-            어떻게 다른가?
+            무엇이 다른가
           </h2>
           <p className="text-muted-foreground">
-            MT5를 단순한 차트툴이 아닌 실행 환경으로 이해합니다
+            수익률이 아닌 구조를, 설정법이 아닌 원리를 다룹니다
           </p>
         </div>
 
