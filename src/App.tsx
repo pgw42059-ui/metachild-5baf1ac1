@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Education from "./pages/Education";
 import Marketplace from "./pages/Marketplace";
+import MT5Manual from "./pages/MT5Manual";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/education" element={<Education />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/guide/mt5-manual" element={<MT5Manual />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
