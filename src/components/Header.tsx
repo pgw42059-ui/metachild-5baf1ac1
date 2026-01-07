@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import { TrendingUp, BookOpen, Download, Crown, Menu, X } from "lucide-react";
+import { TrendingUp, BookOpen, Download, Crown, Menu, X, Youtube, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const navItems = [
-  { label: "교육", href: "/education", icon: BookOpen },
-  { label: "EA 마켓", href: "/marketplace", icon: TrendingUp },
-  { label: "무료 자료", href: "/resources", icon: Download },
+  { label: "교육 센터", href: "/education", icon: BookOpen },
+  { label: "EA 구독하기", href: "/marketplace", icon: TrendingUp },
+  { label: "무료 자료실", href: "/resources", icon: Download },
   { label: "VIP 서비스", href: "/vip", icon: Crown },
+  { label: "유튜브", href: "https://youtube.com", icon: TrendingUp, external: true },
+  { label: "탈출그라운드", href: "https://community.example.com", icon: TrendingUp, external: true },
 ];
 
 export function Header() {
@@ -23,20 +25,36 @@ export function Header() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-gradient">MT5 Pro</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-bold text-gradient">메린이</span>
+                <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.label}</span>
-                </Link>
+                item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -65,15 +83,29 @@ export function Header() {
             <div className="md:hidden py-4 border-t border-border animate-fade-in">
               <nav className="flex flex-col gap-2">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <item.icon className="w-5 h-5" />
-                    <span>{item.label}</span>
-                  </Link>
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="w-5 h-5" />
+                      <span>{item.label}</span>
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="w-5 h-5" />
+                      <span>{item.label}</span>
+                    </Link>
+                  )
                 ))}
                 <div className="pt-2">
                   <Button variant="hero" className="w-full">

@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, TrendingUp, Shield, Zap } from "lucide-react";
+import { ArrowRight, Play, TrendingUp, Shield, GraduationCap } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const stats = [
   { value: "500+", label: "활성 사용자" },
-  { value: "95%", label: "수익률 달성" },
+  { value: "95%", label: "교육 만족도" },
   { value: "24/7", label: "자동 매매" },
 ];
 
 const features = [
-  { icon: TrendingUp, label: "검증된 EA 전략" },
+  { icon: TrendingUp, label: "검증된 10년 백테스트" },
   { icon: Shield, label: "안전한 리스크 관리" },
-  { icon: Zap, label: "빠른 실행 속도" },
+  { icon: GraduationCap, label: "초보자 친화적 교육" },
 ];
 
 export function HeroSection() {
@@ -38,33 +38,33 @@ export function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 animate-fade-in">
             <span className="w-2 h-2 rounded-full bg-profit animate-pulse" />
             <span className="text-sm text-muted-foreground">
-              2025년 최신 EA 전략 업데이트
+              🟢 메타트레이더의 모든 것
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            MT5 자동매매로{" "}
-            <span className="text-gradient glow-text">수익을 자동화</span>
-            하세요
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            메타트레이더(MT4/MT5)를{" "}
+            <br className="hidden md:block" />
+            <span className="text-gradient glow-text">'설정'이 아니라 '구조'</span>로 이해하다
           </h1>
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            전문가가 개발한 검증된 EA로 24시간 자동 매매를 실현하세요.
+            틱 데이터부터 리스크 관리까지 실전에서 작동 가능한 자동매매 환경을 만듭니다.
             <br className="hidden md:block" />
-            초보자도 쉽게 시작할 수 있는 완벽한 교육 시스템을 제공합니다.
+            차트툴이 아니라 '실행 환경'으로 접근합니다.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <Button variant="hero" size="xl">
-              EA 둘러보기
+              📚 무료 가이드 시작
               <ArrowRight className="w-5 h-5" />
             </Button>
             <Button variant="glass" size="xl">
-              <Play className="w-5 h-5" />
-              데모 영상 보기
+              EA 둘러보기
+              <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
 
