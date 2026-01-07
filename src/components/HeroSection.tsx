@@ -2,11 +2,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
-import brandCharacter from "@/assets/brand-character.png";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Heavy Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -20,58 +19,42 @@ export function HeroSection() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 chart-grid opacity-5" />
 
-      {/* Content */}
+      {/* Content - Text Only */}
       <div className="container relative z-10 px-4 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-          
-          {/* Character Image */}
-          <div className="flex-shrink-0 order-1 lg:order-2">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-75" />
-              <img
-                src={brandCharacter}
-                alt="메린이 캐릭터"
-                className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain drop-shadow-2xl"
-              />
-            </div>
-          </div>
+        <div className="max-w-2xl mx-auto text-center">
+          {/* Target Audience */}
+          <p className="text-sm text-muted-foreground mb-6">
+            EA를 돌려봤지만 왜 되는지 모르겠다면, 여기서 시작하세요.
+          </p>
 
-          {/* Text Content */}
-          <div className="max-w-xl text-center lg:text-left order-2 lg:order-1">
-            {/* Target Audience - 누가 봐야 하는지 */}
-            <p className="text-sm text-muted-foreground mb-6">
-              EA를 돌려봤지만 왜 되는지 모르겠다면, 여기서 시작하세요.
-            </p>
+          {/* Main Heading */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-5 leading-tight text-foreground">
+            MT5는 차트툴이 아닙니다.
+            <br />
+            <span className="text-muted-foreground">실행 환경입니다.</span>
+          </h1>
 
-            {/* Main Heading */}
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-5 leading-tight text-foreground">
-              MT5는 차트툴이 아닙니다.
-              <br />
-              <span className="text-muted-foreground">실행 환경입니다.</span>
-            </h1>
+          {/* Subheading */}
+          <p className="text-base text-muted-foreground mb-10 max-w-lg mx-auto leading-relaxed">
+            설정법이 아닌 구조를, 수익률이 아닌 통제를 다룹니다.
+            <br />
+            EA가 작동하는 원리부터 시작하세요.
+          </p>
 
-            {/* Subheading */}
-            <p className="text-base text-muted-foreground mb-10 leading-relaxed">
-              설정법이 아닌 구조를, 수익률이 아닌 통제를 다룹니다.
-              <br />
-              EA가 작동하는 원리부터 시작하세요.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/education">
-                  MT5 구조 가이드 무료로 받기
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="sm" className="text-muted-foreground">
-                <Link to="/marketplace">
-                  EA 비교하기
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </Button>
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild variant="hero" size="xl">
+              <Link to="/education">
+                MT5 구조 가이드 무료로 받기
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="text-muted-foreground">
+              <Link to="/marketplace">
+                EA 비교하기
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
