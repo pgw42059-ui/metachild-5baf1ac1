@@ -7,21 +7,18 @@ const tools = [
     title: "MT5 설정 가이드",
     description: "PC/Mobile 설치부터 차트 설정까지",
     link: "/guide/mt5-pc",
-    internal: true,
   },
   {
     icon: TrendingUp,
     title: "TradingView 연동",
     description: "알람 → MT5 자동 주문 연결",
-    link: "/education/tradingview",
-    internal: true,
+    link: "/resources",
   },
   {
     icon: ClipboardCheck,
     title: "백테스트 체크리스트",
     description: "테스트 전 확인사항 10가지",
-    link: "/resources/backtest-checklist",
-    internal: true,
+    link: "/resources",
   },
 ];
 
