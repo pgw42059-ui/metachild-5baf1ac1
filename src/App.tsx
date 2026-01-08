@@ -12,6 +12,7 @@ import MT5MobileGuide from "./pages/MT5MobileGuide";
 import Resources from "./pages/Resources";
 import Community from "./pages/Community";
 import Consult from "./pages/Consult";
+import Thanks from "./pages/Thanks";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Blog from "./pages/Blog";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/resources" element={<Resources />} />
           <Route path="/community" element={<Community />} />
           <Route path="/consult" element={<Consult />} />
+          <Route path="/thanks" element={<Thanks />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/blog" element={<Blog />} />
