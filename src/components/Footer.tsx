@@ -1,29 +1,26 @@
-import { Mail, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle, Youtube, FileText, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import brandLogo from "@/assets/brand-logo.png";
 
-const footerLinks = {
-  서비스: [
-    { label: "교육 센터", href: "/education" },
-    { label: "EA 구독하기", href: "/marketplace" },
-    { label: "무료 자료실", href: "/resources" },
-    { label: "VIP 서비스", href: "/vip" },
-  ],
-  정보: [
-    { label: "이용약관", href: "/terms" },
-    { label: "개인정보처리방침", href: "/privacy" },
-    { label: "블로그", href: "/blog" },
-    { label: "유튜브", href: "https://youtube.com", external: true },
-  ],
-};
+const quickLinks = [
+  { label: "초보자 가이드", href: "/education" },
+  { label: "MT5 설치 가이드", href: "/guide/mt5-pc" },
+  { label: "전략 라이브러리", href: "/marketplace" },
+  { label: "도구 & 리소스", href: "/resources" },
+];
+
+const legalLinks = [
+  { label: "이용약관", href: "/terms", icon: FileText },
+  { label: "개인정보처리방침", href: "/privacy", icon: Shield },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
-      <div className="container px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="border-t border-border bg-card/30">
+      <div className="container px-4 py-10">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img src={brandLogo} alt="메린이 로고" className="w-7 h-7" />
               <div className="flex flex-col leading-none">
@@ -31,69 +28,82 @@ export function Footer() {
                 <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm mb-4 max-w-md">
-              메타트레이더의 모든 것. 설정이 아닌 구조로,
-              차트가 아닌 실행 환경으로 접근합니다.
+            <p className="text-sm text-muted-foreground mb-4 max-w-xs">
+              MT5 시스템 트레이딩의 구조와 원리.
+              <br />
+              실전 데이터 기반 교육 허브.
             </p>
-            <div className="flex items-center gap-4">
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-4">빠른 메뉴</h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact & Social */}
+          <div>
+            <h4 className="text-sm font-medium text-foreground mb-4">문의 & 채널</h4>
+            <div className="space-y-3">
               <a
-                href="mailto:support@merini.com"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                support@merini.com
-              </a>
-              <a
-                href="#"
+                href="https://open.kakao.com/o/example"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                카카오톡 상담
+                카카오톡 오픈채팅
+              </a>
+              <a
+                href="https://youtube.com/@merini"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Youtube className="w-4 h-4" />
+                유튜브 채널
+              </a>
+              <a
+                href="mailto:support@merini.kr"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                support@merini.kr
               </a>
             </div>
           </div>
-
-          {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="font-semibold mb-4">{title}</h4>
-              <ul className="space-y-2">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    {link.external ? (
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-border mt-8 pt-8 flex flex-col gap-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
+        <div className="border-t border-border mt-8 pt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-muted-foreground">
               © 2025 메린이 (META Child). All rights reserved.
             </p>
+            <div className="flex items-center gap-4">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <link.icon className="w-3 h-3" />
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
-          <p className="text-xs text-muted-foreground text-center bg-secondary/30 rounded-lg p-3">
-            ⚠️ 투자 위험 고지: 본 서비스는 투자 조언이 아니며, 모든 투자 결정과 손실은 투자자 본인의 책임입니다. 과거 수익률이 미래 수익을 보장하지 않습니다.
-          </p>
         </div>
       </div>
     </footer>
