@@ -1,57 +1,43 @@
-import { Monitor, TrendingUp, ClipboardCheck, FileDown, ExternalLink, FileText, FileSpreadsheet, Palette, ArrowRight } from "lucide-react";
+import { Monitor, TrendingUp, ClipboardCheck, FileDown, ExternalLink, FileText, FileSpreadsheet, Palette, ArrowRight, LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import resourcesData from "@/content/resources.json";
 
-const tools = [
-  {
-    icon: Monitor,
-    title: "MT5 설정 가이드",
-    description: "PC/Mobile 설치부터 차트 설정까지",
-    link: "/guide/mt5-pc",
-  },
-  {
-    icon: TrendingUp,
-    title: "TradingView 연동",
-    description: "알람 → MT5 자동 주문 연결",
-    link: "/resources",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "백테스트 체크리스트",
-    description: "테스트 전 확인사항 10가지",
-    link: "/downloads/backtest-checklist.txt",
-    isDownload: true,
-  },
-];
+interface GuideItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+  icon: string;
+  isDownload?: boolean;
+}
 
-const downloads = [
-  {
-    icon: FileText,
-    title: "전략 템플릿 (Notion)",
-    description: "진입/청산/리스크 정리 양식",
-    format: "Notion",
-    link: "https://notion.so",
-    isExternal: true,
-  },
-  {
-    icon: Palette,
-    title: "MT5 차트 프리셋",
-    description: "다크 테마 + 인디케이터 세팅",
-    format: ".tpl",
-    link: "/downloads/mt5-chart-preset.tpl",
-    isDownload: true,
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "거래 일지 스프레드시트",
-    description: "일별 성과 기록 및 분석",
-    format: "CSV",
-    link: "/downloads/trading-journal.csv",
-    isDownload: true,
-  },
-];
+interface DownloadItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  format: string;
+  link: string;
+  icon: string;
+  isExternal?: boolean;
+  isDownload?: boolean;
+}
+
+const iconMap: Record<string, LucideIcon> = {
+  Monitor,
+  TrendingUp,
+  ClipboardCheck,
+  FileText,
+  FileSpreadsheet,
+  Palette,
+};
 
 export function ToolsResourcesSection() {
+  const guides = resourcesData.guides as GuideItem[];
+  const downloads = resourcesData.downloads as DownloadItem[];
+
   return (
     <section className="py-20 bg-secondary/20">
       <div className="container px-4">
@@ -72,48 +58,54 @@ export function ToolsResourcesSection() {
               Quick Start 가이드
             </h3>
             <div className="space-y-3">
-              {tools.map((tool, idx) => (
-                tool.isDownload ? (
-                  <a
-                    key={idx}
-                    href={tool.link}
-                    download
-                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <tool.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {tool.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground">
-                        {tool.description}
-                      </p>
-                    </div>
-                    <FileDown className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                ) : (
+              {guides.map((guide) => {
+                const IconComponent = iconMap[guide.icon] || Monitor;
+                
+                if (guide.isDownload) {
+                  return (
+                    <a
+                      key={guide.id}
+                      href={guide.link}
+                      download
+                      className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <IconComponent className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                          {guide.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          {guide.description}
+                        </p>
+                      </div>
+                      <FileDown className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  );
+                }
+                
+                return (
                   <Link
-                    key={idx}
-                    to={tool.link}
+                    key={guide.id}
+                    to={guide.link}
                     className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <tool.icon className="w-5 h-5 text-primary" />
+                      <IconComponent className="w-5 h-5 text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {tool.title}
+                        {guide.title}
                       </h4>
                       <p className="text-xs text-muted-foreground">
-                        {tool.description}
+                        {guide.description}
                       </p>
                     </div>
                     <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -123,39 +115,45 @@ export function ToolsResourcesSection() {
               다운로드
             </h3>
             <div className="space-y-3">
-              {downloads.map((item, idx) => (
-                item.isExternal ? (
+              {downloads.map((item) => {
+                const IconComponent = iconMap[item.icon] || FileText;
+                
+                if (item.isExternal) {
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                        <IconComponent className="w-5 h-5 text-accent" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                      <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
+                        {item.format}
+                      </span>
+                    </a>
+                  );
+                }
+                
+                return (
                   <a
-                    key={idx}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-accent" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                    <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
-                      {item.format}
-                    </span>
-                  </a>
-                ) : (
-                  <a
-                    key={idx}
+                    key={item.id}
                     href={item.link}
                     download
                     className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
                   >
                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-accent" />
+                      <IconComponent className="w-5 h-5 text-accent" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
@@ -169,8 +167,8 @@ export function ToolsResourcesSection() {
                       {item.format}
                     </span>
                   </a>
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

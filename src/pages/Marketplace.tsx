@@ -2,35 +2,23 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, ExternalLink, Shield, BarChart3, AlertTriangle } from "lucide-react";
+import eaProductsData from "@/content/ea-products.json";
 
-const eaList = [
-  {
-    name: "Grid Master",
-    type: "그리드",
-    description: "변동성 구간에서 작동하는 그리드 전략. 횡보장 특화.",
-    riskNote: "추세장에서 드로우다운 주의",
-    backtestYears: 10,
-    mqlLink: "#",
-  },
-  {
-    name: "Trend Follower",
-    type: "추세추종",
-    description: "명확한 추세에서만 진입. 횡보장에서는 대기합니다.",
-    riskNote: "거래 빈도 낮음, 인내 필요",
-    backtestYears: 8,
-    mqlLink: "#",
-  },
-  {
-    name: "Scalp Engine",
-    type: "스캘핑",
-    description: "단기 변동성 포착. 빠른 진입과 청산.",
-    riskNote: "스프레드와 슬리피지에 민감",
-    backtestYears: 5,
-    mqlLink: "#",
-  },
-];
+interface EAProduct {
+  id: string;
+  name: string;
+  type: string;
+  category: string;
+  description: string;
+  riskNote: string;
+  backtestYears: number;
+  mqlLink: string;
+  badge?: string;
+}
 
 const Marketplace = () => {
+  const eaList = eaProductsData as EAProduct[];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -62,9 +50,9 @@ const Marketplace = () => {
           <div className="container px-4">
             <div className="max-w-3xl mx-auto">
               <div className="space-y-4">
-                {eaList.map((ea, index) => (
+                {eaList.map((ea) => (
                   <div
-                    key={index}
+                    key={ea.id}
                     className="p-5 rounded-xl border border-border/50 bg-card/30"
                   >
                     <div className="flex items-start justify-between gap-4 mb-4">
@@ -76,6 +64,11 @@ const Marketplace = () => {
                           <span className="text-xs text-muted-foreground bg-secondary/50 px-2 py-1 rounded">
                             {ea.type}
                           </span>
+                          {ea.badge && (
+                            <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-primary/20 text-primary">
+                              {ea.badge}
+                            </span>
+                          )}
                         </div>
                         <p className="text-sm text-muted-foreground">
                           {ea.description}
