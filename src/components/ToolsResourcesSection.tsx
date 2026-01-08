@@ -1,5 +1,6 @@
-import { Monitor, TrendingUp, ClipboardCheck, FileDown, ExternalLink } from "lucide-react";
+import { Monitor, TrendingUp, ClipboardCheck, FileDown, ExternalLink, FileText, FileSpreadsheet, Palette, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const tools = [
   {
@@ -18,25 +19,35 @@ const tools = [
     icon: ClipboardCheck,
     title: "백테스트 체크리스트",
     description: "테스트 전 확인사항 10가지",
-    link: "/resources",
+    link: "/downloads/backtest-checklist.txt",
+    isDownload: true,
   },
 ];
 
 const downloads = [
   {
+    icon: FileText,
     title: "전략 템플릿 (Notion)",
     description: "진입/청산/리스크 정리 양식",
     format: "Notion",
+    link: "https://notion.so",
+    isExternal: true,
   },
   {
+    icon: Palette,
     title: "MT5 차트 프리셋",
     description: "다크 테마 + 인디케이터 세팅",
     format: ".tpl",
+    link: "/downloads/mt5-chart-preset.tpl",
+    isDownload: true,
   },
   {
+    icon: FileSpreadsheet,
     title: "거래 일지 스프레드시트",
     description: "일별 성과 기록 및 분석",
-    format: "Excel",
+    format: "CSV",
+    link: "/downloads/trading-journal.csv",
+    isDownload: true,
   },
 ];
 
@@ -62,24 +73,46 @@ export function ToolsResourcesSection() {
             </h3>
             <div className="space-y-3">
               {tools.map((tool, idx) => (
-                <Link
-                  key={idx}
-                  to={tool.link}
-                  className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <tool.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                      {tool.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {tool.description}
-                    </p>
-                  </div>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
+                tool.isDownload ? (
+                  <a
+                    key={idx}
+                    href={tool.link}
+                    download
+                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <tool.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {tool.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <FileDown className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ) : (
+                  <Link
+                    key={idx}
+                    to={tool.link}
+                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <tool.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {tool.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                )
               ))}
             </div>
           </div>
@@ -91,28 +124,64 @@ export function ToolsResourcesSection() {
             </h3>
             <div className="space-y-3">
               {downloads.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                    <FileDown className="w-5 h-5 text-accent" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
-                    {item.format}
-                  </span>
-                </div>
+                item.isExternal ? (
+                  <a
+                    key={idx}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
+                      {item.format}
+                    </span>
+                  </a>
+                ) : (
+                  <a
+                    key={idx}
+                    href={item.link}
+                    download
+                    className="group flex items-center gap-4 glass-card p-4 hover:border-primary/30 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                      <item.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
+                      {item.format}
+                    </span>
+                  </a>
+                )
               ))}
             </div>
           </div>
+        </div>
+
+        {/* View All Button */}
+        <div className="text-center mt-10">
+          <Button asChild variant="outline" size="sm">
+            <Link to="/resources" className="gap-2">
+              전체 자료 보기 <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
