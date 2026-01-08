@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -23,32 +21,22 @@ export function HeroSection() {
 
           {/* Main Heading */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            설정이 아닌 <span className="text-gradient">구조</span>로,
+            MT5를 <span className="text-gradient">이해</span>하는 곳.
             <br />
-            수익률이 아닌 <span className="text-gradient">통제</span>로.
+            자동매매를 <span className="text-gradient">판단</span>하는 곳.
           </h1>
 
           {/* Subheading */}
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
-            MT5 자동매매의 본질은 '왜 작동하는가'입니다.
+            수익을 약속하지 않습니다. 대신 구조를 설명합니다.
             <br className="hidden sm:block" />
-            재현 가능한 전략, 리스크 설계, 실전 데이터 기반 교육.
+            당신의 단계에 맞는 콘텐츠를 제공합니다.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild variant="hero" size="xl">
-              <Link to="/education">
-                초보자 가이드 보기
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-border hover:border-primary/50">
-              <Link to="/marketplace" className="flex items-center gap-2">
-                <Play className="w-4 h-4" />
-                전략·EA 데모 보기
-              </Link>
-            </Button>
+          {/* Scroll Indicator */}
+          <div className="flex flex-col items-center gap-2 text-muted-foreground">
+            <span className="text-sm">아래에서 시작점을 선택하세요</span>
+            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
           </div>
 
           {/* Trust indicators */}

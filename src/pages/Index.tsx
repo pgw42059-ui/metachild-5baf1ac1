@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { StartHereSection } from "@/components/StartHereSection";
+import { UserPathSelector } from "@/components/UserPathSelector";
 import { ContentTabsSection } from "@/components/ContentTabsSection";
 import { CoreValuesSection } from "@/components/CoreValuesSection";
 import { ToolsResourcesSection } from "@/components/ToolsResourcesSection";
@@ -13,11 +13,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* 1. Hero - 핵심 메시지 + CTA */}
+        {/* 1. Hero - 핵심 메시지 */}
         <HeroSection />
         
-        {/* 2. Start Here - 초보자 시작 경로 */}
-        <StartHereSection />
+        {/* 2. 사용자 유형별 진입점 선택 */}
+        <UserPathSelector />
         
         {/* 3. 콘텐츠 탭 섹션 */}
         <ContentTabsSection />
