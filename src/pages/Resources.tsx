@@ -1,59 +1,45 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Download, FileText, Monitor, TrendingUp, ClipboardCheck, ExternalLink, FileDown, FileSpreadsheet, Palette } from "lucide-react";
+import { Download, FileText, Monitor, TrendingUp, ClipboardCheck, ExternalLink, FileDown, FileSpreadsheet, Palette, LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import resourcesData from "@/content/resources.json";
 
-const guides = [
-  {
-    icon: Monitor,
-    title: "MT5 설정 가이드",
-    description: "PC/Mobile 설치부터 차트 설정까지",
-    link: "/guide/mt5-pc",
-  },
-  {
-    icon: TrendingUp,
-    title: "TradingView 연동 가이드",
-    description: "알람 → MT5 자동 주문 연결 방법",
-    link: "/education",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "백테스트 체크리스트",
-    description: "테스트 전 확인사항 10가지",
-    link: "/downloads/backtest-checklist.txt",
-    isDownload: true,
-  },
-];
+interface GuideItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  link: string;
+  icon: string;
+  isDownload?: boolean;
+}
 
-const downloads = [
-  {
-    icon: FileText,
-    title: "전략 템플릿 (Notion)",
-    description: "진입/청산/리스크 정리 양식",
-    format: "Notion",
-    link: "https://notion.so",
-    isExternal: true,
-  },
-  {
-    icon: Palette,
-    title: "MT5 차트 프리셋",
-    description: "다크 테마 + 기본 인디케이터 세팅",
-    format: ".tpl",
-    link: "/downloads/mt5-chart-preset.tpl",
-    isDownload: true,
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "거래 일지 스프레드시트",
-    description: "일별 성과 기록 및 분석",
-    format: "CSV",
-    link: "/downloads/trading-journal.csv",
-    isDownload: true,
-  },
-];
+interface DownloadItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  format: string;
+  link: string;
+  icon: string;
+  isExternal?: boolean;
+  isDownload?: boolean;
+}
+
+const iconMap: Record<string, LucideIcon> = {
+  Monitor,
+  TrendingUp,
+  ClipboardCheck,
+  FileText,
+  FileSpreadsheet,
+  Palette,
+};
 
 const Resources = () => {
+  const guides = resourcesData.guides as GuideItem[];
+  const downloads = resourcesData.downloads as DownloadItem[];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -81,33 +67,39 @@ const Resources = () => {
           <div className="container px-4">
             <h2 className="text-xl font-semibold mb-6 text-foreground">Quick Start 가이드</h2>
             <div className="grid md:grid-cols-3 gap-4">
-              {guides.map((guide, idx) => (
-                guide.isDownload ? (
-                  <a
-                    key={idx}
-                    href={guide.link}
-                    download
-                    className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <guide.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
-                      {guide.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{guide.description}</p>
-                    <div className="mt-3 flex items-center text-xs text-primary">
-                      <FileDown className="w-3 h-3 mr-1" /> 다운로드
-                    </div>
-                  </a>
-                ) : (
+              {guides.map((guide) => {
+                const IconComponent = iconMap[guide.icon] || Monitor;
+                
+                if (guide.isDownload) {
+                  return (
+                    <a
+                      key={guide.id}
+                      href={guide.link}
+                      download
+                      className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                        <IconComponent className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
+                        {guide.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{guide.description}</p>
+                      <div className="mt-3 flex items-center text-xs text-primary">
+                        <FileDown className="w-3 h-3 mr-1" /> 다운로드
+                      </div>
+                    </a>
+                  );
+                }
+                
+                return (
                   <Link
-                    key={idx}
+                    key={guide.id}
                     to={guide.link}
                     className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <guide.icon className="w-5 h-5 text-primary" />
+                      <IconComponent className="w-5 h-5 text-primary" />
                     </div>
                     <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
                       {guide.title}
@@ -117,8 +109,8 @@ const Resources = () => {
                       바로가기 <ExternalLink className="w-3 h-3 ml-1" />
                     </div>
                   </Link>
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -128,40 +120,46 @@ const Resources = () => {
           <div className="container px-4">
             <h2 className="text-xl font-semibold mb-6 text-foreground">다운로드</h2>
             <div className="grid md:grid-cols-3 gap-4">
-              {downloads.map((item, idx) => (
-                item.isExternal ? (
+              {downloads.map((item) => {
+                const IconComponent = iconMap[item.icon] || FileText;
+                
+                if (item.isExternal) {
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                        <IconComponent className="w-5 h-5 text-accent" />
+                      </div>
+                      <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
+                          {item.format}
+                        </span>
+                        <span className="flex items-center text-xs text-primary">
+                          열기 <ExternalLink className="w-3 h-3 ml-1" />
+                        </span>
+                      </div>
+                    </a>
+                  );
+                }
+                
+                return (
                   <a
-                    key={idx}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                      <item.icon className="w-5 h-5 text-accent" />
-                    </div>
-                    <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono px-2 py-1 rounded bg-muted text-muted-foreground">
-                        {item.format}
-                      </span>
-                      <span className="flex items-center text-xs text-primary">
-                        열기 <ExternalLink className="w-3 h-3 ml-1" />
-                      </span>
-                    </div>
-                  </a>
-                ) : (
-                  <a
-                    key={idx}
+                    key={item.id}
                     href={item.link}
                     download
                     className="group p-5 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
                   >
                     <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                      <item.icon className="w-5 h-5 text-accent" />
+                      <IconComponent className="w-5 h-5 text-accent" />
                     </div>
                     <h3 className="font-medium text-foreground group-hover:text-primary transition-colors mb-2">
                       {item.title}
@@ -176,8 +174,8 @@ const Resources = () => {
                       </span>
                     </div>
                   </a>
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
