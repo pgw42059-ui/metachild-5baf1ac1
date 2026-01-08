@@ -75,11 +75,35 @@ const Consult = () => {
     
     setIsSubmitting(true);
     
-    // Simulate submission delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    // Navigate to thanks page
-    navigate("/thanks");
+    try {
+      const response = await fetch("https://formspree.io/f/mrebnowp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          이름: formData.name,
+          연락처: formData.contact,
+          관심분야: formData.interest,
+          사용브로커: formData.broker || "(미입력)",
+          문의내용: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        navigate("/thanks");
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "전송 실패",
+        description: "메일 전송에 실패했습니다. 잠시 후 다시 시도하거나 직접 연락해주세요.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
