@@ -1,7 +1,11 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { NarrativeSection } from "@/components/NarrativeSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
+import { StartHereSection } from "@/components/StartHereSection";
+import { ContentTabsSection } from "@/components/ContentTabsSection";
+import { CoreValuesSection } from "@/components/CoreValuesSection";
+import { ToolsResourcesSection } from "@/components/ToolsResourcesSection";
+import { UpdatesLogSection } from "@/components/UpdatesLogSection";
+import { TrustDisclaimerSection } from "@/components/TrustDisclaimerSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -9,10 +13,29 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
+        {/* 1. Hero - 핵심 메시지 + CTA */}
         <HeroSection />
-        <NarrativeSection />
-        <FeaturesSection />
+        
+        {/* 2. Start Here - 초보자 시작 경로 */}
+        <StartHereSection />
+        
+        {/* 3. 콘텐츠 탭 섹션 */}
+        <ContentTabsSection />
+        
+        {/* 4. 핵심 가치 4카드 */}
+        <CoreValuesSection />
+        
+        {/* 5. 도구 & 리소스 허브 */}
+        <ToolsResourcesSection />
+        
+        {/* 6. 운영 공지 & 업데이트 로그 */}
+        <UpdatesLogSection />
+        
+        {/* 7. 신뢰 & 리스크 고지 */}
+        <TrustDisclaimerSection />
       </main>
+      
+      {/* 8. Footer */}
       <Footer />
     </div>
   );
