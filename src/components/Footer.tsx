@@ -56,24 +56,20 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-medium text-foreground mb-4">문의 & 채널</h4>
             <div className="space-y-3">
-              <a
-                href="https://open.kakao.com/o/example"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/community"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 카카오톡 오픈채팅
-              </a>
-              <a
-                href="https://youtube.com/@merini"
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link
+                to="/community"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Youtube className="w-4 h-4" />
                 유튜브 채널
-              </a>
+              </Link>
               <a
                 href="mailto:support@merini.kr"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"

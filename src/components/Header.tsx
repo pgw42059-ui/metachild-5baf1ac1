@@ -8,7 +8,7 @@ const navItems = [
   { label: "교육 센터", href: "/education", icon: BookOpen },
   { label: "EA 마켓", href: "/marketplace", icon: Bot },
   { label: "무료 자료", href: "/resources", icon: Download },
-  { label: "커뮤니티", href: "https://community.example.com", icon: Globe, external: true },
+  { label: "커뮤니티", href: "/community", icon: Globe },
 ];
 
 const guideItems = [
@@ -71,34 +71,21 @@ export function Header() {
               </div>
 
               {navItems.map((item) => (
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                  >
-                    <item.icon className="w-4 h-4" />
-                    <span>{item.label}</span>
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                  >
-                    <item.icon className="w-4 h-4" />
-                    <span>{item.label}</span>
-                  </Link>
-                )
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </Link>
               ))}
             </nav>
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <Button variant="hero" size="sm">
-                무료 상담
+              <Button asChild variant="hero" size="sm">
+                <Link to="/consult">무료 상담</Link>
               </Button>
             </div>
 
@@ -150,33 +137,21 @@ export function Header() {
                 </div>
 
                 {navItems.map((item) => (
-                  item.external ? (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <item.icon className="w-5 h-5" />
-                      <span>{item.label}</span>
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <item.icon className="w-5 h-5" />
-                      <span>{item.label}</span>
-                    </Link>
-                  )
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </Link>
                 ))}
                 <div className="pt-2">
-                  <Button variant="hero" className="w-full">
-                    무료 상담
+                  <Button asChild variant="hero" className="w-full">
+                    <Link to="/consult" onClick={() => setMobileMenuOpen(false)}>
+                      무료 상담
+                    </Link>
                   </Button>
                 </div>
               </nav>

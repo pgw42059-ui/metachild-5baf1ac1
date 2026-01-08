@@ -1,0 +1,95 @@
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Target, ArrowLeft, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const topics = [
+  {
+    title: "전략의 구성 요소",
+    content: "모든 전략은 진입 조건, 청산 조건, 포지션 사이징으로 구성됩니다. 어느 하나라도 불명확하면 일관된 거래가 불가능합니다.",
+  },
+  {
+    title: "진입 로직 설계",
+    content: "언제 매수/매도할 것인가? 가격, 시간, 지표 조건을 조합하여 명확한 트리거를 정의해야 합니다.",
+  },
+  {
+    title: "청산 로직 설계",
+    content: "익절과 손절 기준을 미리 정합니다. 감정이 아닌 규칙에 따라 포지션을 닫습니다.",
+  },
+  {
+    title: "손익비(R:R)의 의미",
+    content: "리스크 대비 리워드 비율입니다. 승률 50%라도 손익비 2:1이면 수익이 납니다. 승률과 손익비의 균형을 이해하세요.",
+  },
+];
+
+const Strategy = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="pt-20">
+        {/* Hero */}
+        <section className="py-16 border-b border-border/50">
+          <div className="container px-4">
+            <div className="max-w-2xl">
+              <Link
+                to="/education"
+                className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-4"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                교육 센터
+              </Link>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">
+                  STEP 2
+                </span>
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  <Clock className="w-3 h-3" />
+                  30분
+                </div>
+              </div>
+              <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
+                전략 구조 학습
+              </h1>
+              <p className="text-muted-foreground leading-relaxed">
+                진입/청산 로직, 시간대, 손익비 설계 원리를 배웁니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Content */}
+        <section className="py-16">
+          <div className="container px-4">
+            <div className="max-w-2xl mx-auto space-y-8">
+              {topics.map((topic, idx) => (
+                <div key={idx} className="p-6 rounded-xl border border-border/50 bg-card/30">
+                  <h2 className="text-lg font-medium text-foreground mb-3">{topic.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed">{topic.content}</p>
+                </div>
+              ))}
+
+              {/* Next Step */}
+              <div className="pt-8 border-t border-border">
+                <Link
+                  to="/education/risk"
+                  className="group flex items-center justify-between p-4 rounded-xl border border-border/50 bg-card/30 hover:border-primary/30 transition-all"
+                >
+                  <div>
+                    <span className="text-xs text-muted-foreground">다음 단계</span>
+                    <p className="font-medium text-foreground group-hover:text-primary transition-colors">
+                      STEP 3: 리스크 관리
+                    </p>
+                  </div>
+                  <ArrowLeft className="w-4 h-4 text-muted-foreground rotate-180 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Strategy;
