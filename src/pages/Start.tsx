@@ -21,7 +21,7 @@ const levels = [
       "차트 열기, 버튼 조작법 안내",
     ],
     cta: "메타트레이더 처음입니다",
-    href: "/guide/mt5-manual",
+    href: "/education/why-mt5",
     color: "primary",
   },
   {
