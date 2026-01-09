@@ -70,19 +70,14 @@ export default function Start() {
       <Header />
       <main className="pt-20">
         {/* Intro Section */}
-        <section className="py-16">
+        <section className="py-10 md:py-16">
           <div className="container px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                어디서부터 시작해야 할지 모르겠다면
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                지금 단계를 선택하세요
               </h1>
-              <p className="text-base text-muted-foreground mb-2">
-                괜찮습니다. 처음엔 누구나 그렇습니다.
-              </p>
               <p className="text-sm text-muted-foreground">
-                아래에서 지금 자신의 상태와 가장 가까운 것을 선택하세요.
-                <br />
-                각 단계에 맞는 콘텐츠로 안내해 드립니다.
+                가장 가까운 상태를 고르면, 그에 맞는 가이드로 안내합니다.
               </p>
             </div>
           </div>
