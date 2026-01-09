@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { BookOpen, Download, Menu, X, Globe, Bot, FileText, ChevronDown, Monitor, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import brandLogo from "@/assets/brand-logo.png";
+import logoMark from "@/assets/logo-mark.png";
 
 const navItems = [
   { label: "교육 센터", href: "/education", icon: BookOpen },
@@ -27,8 +27,8 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <img src={brandLogo} alt="메린이 로고" className="w-8 h-8" />
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logoMark} alt="메린이 로고" className="h-8 w-auto" />
               <div className="flex flex-col leading-none">
                 <span className="text-lg font-bold text-foreground">메린이</span>
                 <span className="text-[10px] text-muted-foreground tracking-wide">META Child</span>
