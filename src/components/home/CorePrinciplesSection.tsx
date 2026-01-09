@@ -20,23 +20,23 @@ const principles = [
 
 export function CorePrinciplesSection() {
   return (
-    <section className="py-16 md:py-20 bg-card/30">
+    <section className="py-20 md:py-28 bg-background border-t border-border/30">
       <div className="container px-4">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-3 gap-12 md:gap-16 max-w-5xl mx-auto">
           {principles.map((item, idx) => (
-            <div key={idx} className="text-center">
-              {/* Icon */}
-              <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30 flex items-center justify-center">
-                <item.icon className="w-7 h-7 text-primary" />
+            <div key={idx} className="text-center space-y-4">
+              {/* Icon - emphasized but calm */}
+              <div className="w-14 h-14 mx-auto rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <item.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
               </div>
               
-              {/* Title */}
-              <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
+              {/* Title - bold declaration */}
+              <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
                 {item.title}
               </h3>
               
-              {/* Subtitle */}
-              <p className="text-sm text-muted-foreground">
+              {/* Philosophy statement - minimal, confident */}
+              <p className="text-base text-muted-foreground font-medium">
                 {item.subtitle}
               </p>
             </div>
