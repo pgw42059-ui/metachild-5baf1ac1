@@ -41,8 +41,8 @@ const App = () => (
           <Route path="/education/market-basics" element={<MarketBasics />} />
           <Route path="/education/strategy" element={<Strategy />} />
           <Route path="/education/risk" element={<Risk />} />
-          <Route path="/education/beginner/why-mt5" element={<WhyMT5 />} />
-          <Route path="/education/beginner/before-mt5" element={<BeforeMT5 />} />
+          <Route path="/education/why-mt5" element={<WhyMT5 />} />
+          <Route path="/education/before-mt5" element={<BeforeMT5 />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/community" element={<Community />} />
