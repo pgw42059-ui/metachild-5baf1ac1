@@ -21,6 +21,7 @@ import Strategy from "./pages/education/Strategy";
 import Risk from "./pages/education/Risk";
 import Roadmap from "./pages/Roadmap";
 import Start from "./pages/Start";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/guide/mt5-mobile" element={<MT5MobileGuide />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/start" element={<Start />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
