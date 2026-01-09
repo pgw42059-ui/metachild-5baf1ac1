@@ -8,9 +8,10 @@ interface GuideItem {
   category: string;
   title: string;
   description: string;
-  link: string;
+  link: string | null;
   icon: string;
   isDownload?: boolean;
+  comingSoon?: boolean;
 }
 
 interface DownloadItem {
@@ -61,7 +62,31 @@ export function ToolsResourcesSection() {
               {guides.map((guide) => {
                 const IconComponent = iconMap[guide.icon] || Monitor;
                 
-                if (guide.isDownload) {
+                if (guide.comingSoon) {
+                  return (
+                    <div
+                      key={guide.id}
+                      className="flex items-center gap-4 glass-card p-4 opacity-60 cursor-not-allowed"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center shrink-0">
+                        <IconComponent className="w-5 h-5 text-muted-foreground" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-sm font-medium text-muted-foreground">
+                          {guide.title}
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          {guide.description}
+                        </p>
+                      </div>
+                      <span className="text-[10px] font-medium px-2 py-1 rounded bg-muted text-muted-foreground">
+                        준비중
+                      </span>
+                    </div>
+                  );
+                }
+                
+                if (guide.isDownload && guide.link) {
                   return (
                     <a
                       key={guide.id}
@@ -84,6 +109,8 @@ export function ToolsResourcesSection() {
                     </a>
                   );
                 }
+                
+                if (!guide.link) return null;
                 
                 return (
                   <Link
