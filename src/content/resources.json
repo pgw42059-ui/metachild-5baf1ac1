@@ -13,8 +13,9 @@
       "category": "guide",
       "title": "TradingView 연동",
       "description": "알람 → MT5 자동 주문 연결",
-      "link": "/resources",
-      "icon": "TrendingUp"
+      "link": null,
+      "icon": "TrendingUp",
+      "comingSoon": true
     },
     {
       "id": "guide-003",
