@@ -19,6 +19,7 @@ import Blog from "./pages/Blog";
 import MarketBasics from "./pages/education/MarketBasics";
 import Strategy from "./pages/education/Strategy";
 import Risk from "./pages/education/Risk";
+import WhyMT5 from "./pages/education/WhyMT5";
 import Roadmap from "./pages/Roadmap";
 import Start from "./pages/Start";
 import Gateway from "./pages/Gateway";
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/education/market-basics" element={<MarketBasics />} />
           <Route path="/education/strategy" element={<Strategy />} />
           <Route path="/education/risk" element={<Risk />} />
+          <Route path="/education/beginner/why-mt5" element={<WhyMT5 />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/community" element={<Community />} />
