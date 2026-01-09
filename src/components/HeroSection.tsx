@@ -17,15 +17,12 @@ export function HeroSection() {
         <div className="max-w-3xl mx-auto text-center">
           {/* Main Heading */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-foreground">
-            메타트레이더(MT5)를 이해하고 판단하는 곳
+            메타트레이더(MT5) 기반 트레이딩 구조 교육 사이트
           </h1>
 
-          {/* Supporting lines */}
-          <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-xl mx-auto leading-relaxed">
-            수익을 약속하지 않습니다. 대신 구조와 원리를 설명합니다.
-          </p>
-          <p className="text-sm text-muted-foreground mb-8 max-w-lg mx-auto">
-            설치 방법부터 자동매매 검토까지, 단계별로 정리된 정보를 제공합니다.
+          {/* Supporting line */}
+          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
+            트레이딩 구조를 이해하고, 스스로 판단하는 방법을 배웁니다.
           </p>
 
           {/* CTA Button */}
