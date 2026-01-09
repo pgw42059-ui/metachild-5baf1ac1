@@ -1,6 +1,6 @@
 import { Mail, MessageCircle, Youtube, FileText, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
-import brandLogo from "@/assets/brand-logo.png";
+import logoMark from "@/assets/logo-mark.png";
 
 const quickLinks = [
   { label: "초보자 가이드", href: "/education" },
@@ -22,11 +22,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={brandLogo} alt="메린이 로고" className="w-7 h-7" />
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-semibold text-foreground">메린이</span>
-                <span className="text-[10px] text-muted-foreground tracking-wider">META Child</span>
-              </div>
+              <img src={logoMark} alt="메린이 로고" className="h-6 w-auto" />
+              <span className="text-base font-semibold text-foreground">메린이 (META Child)</span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4 max-w-xs">
               MT5 시스템 트레이딩의 구조와 원리.

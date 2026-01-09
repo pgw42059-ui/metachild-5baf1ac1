@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroMain from "@/assets/hero-main.png";
+import logoMark from "@/assets/logo-mark.png";
 
 export function HeroSection() {
   return (
@@ -15,6 +16,16 @@ export function HeroSection() {
         />
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/30 md:to-transparent" />
+      </div>
+
+      {/* Subtle logo watermark - top left area */}
+      <div className="absolute top-24 left-4 md:left-8 z-10">
+        <img 
+          src={logoMark} 
+          alt="" 
+          className="h-10 md:h-12 w-auto opacity-40"
+          aria-hidden="true"
+        />
       </div>
 
       {/* Content */}
