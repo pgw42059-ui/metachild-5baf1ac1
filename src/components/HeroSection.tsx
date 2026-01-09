@@ -20,8 +20,8 @@ export function HeroSection() {
             메타트레이더(MT5) 기반 트레이딩 구조 교육 사이트
           </h1>
 
-          {/* Supporting line */}
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
+          {/* Supporting line - ONE sentence only */}
+          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             트레이딩 구조를 이해하고, 스스로 판단하는 방법을 배웁니다.
           </p>
 
