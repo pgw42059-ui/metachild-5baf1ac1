@@ -105,7 +105,7 @@ export default function WhyMT5() {
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                <Link to="/education/beginner/before-mt5">
+                <Link to="/education/before-mt5">
                   MT5 시작 전, 반드시 확인할 3가지만 보기
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
