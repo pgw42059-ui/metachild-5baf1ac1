@@ -13,8 +13,14 @@ import { GuidesLayout } from "@/layouts/GuidesLayout";
 // Pages
 import Index from "./pages/Index";
 import Education from "./pages/Education";
-import Marketplace from "./pages/Marketplace";
 import MT5Manual from "./pages/MT5Manual";
+// Markets pages
+import MarketsOverview from "./pages/markets/Overview";
+import NasdaqPage from "./pages/markets/Nasdaq";
+import SP500Page from "./pages/markets/SP500";
+import OilPage from "./pages/markets/Oil";
+import GoldPage from "./pages/markets/Gold";
+import RatesPage from "./pages/markets/Rates";
 import MT5PCGuide from "./pages/MT5PCGuide";
 import MT5MobileGuide from "./pages/MT5MobileGuide";
 import Resources from "./pages/Resources";
@@ -59,10 +65,14 @@ const App = () => (
           
           {/* Markets section - /markets/* with MarketsLayout */}
           <Route element={<MarketsLayout />}>
-            <Route path="/markets" element={<Marketplace />} />
+            <Route path="/markets" element={<MarketsOverview />} />
+            <Route path="/markets/overview" element={<MarketsOverview />} />
+            <Route path="/markets/nasdaq" element={<NasdaqPage />} />
+            <Route path="/markets/sp500" element={<SP500Page />} />
+            <Route path="/markets/oil" element={<OilPage />} />
+            <Route path="/markets/gold" element={<GoldPage />} />
+            <Route path="/markets/rates" element={<RatesPage />} />
           </Route>
-          
-          {/* Brokers section - /brokers/* with BrokersLayout */}
           <Route element={<BrokersLayout />}>
             <Route path="/brokers" element={<BrokerGuide />} />
           </Route>
