@@ -1,33 +1,38 @@
 import { Link, useLocation } from "react-router-dom";
 import { ChevronRight, Home } from "lucide-react";
 
-// Route to breadcrumb label mapping
-const routeLabels: Record<string, string> = {
+// Route segment to label mapping
+const segmentLabels: Record<string, string> = {
   // Main categories
-  "/today": "Today",
-  "/markets": "Markets",
-  "/brokers": "Brokers",
-  "/guides": "Guides",
-  "/guides/resources": "자료실",
-  "/guides/roadmap": "학습 로드맵",
+  "today": "Today",
+  "markets": "Markets",
+  "brokers": "Brokers",
+  "guides": "Guides",
+  
+  // Markets sub-routes
+  "overview": "Top 6 Dashboard",
+  "nasdaq": "Nasdaq",
+  "sp500": "S&P 500",
+  "oil": "Oil",
+  "gold": "Gold",
+  "rates": "Rates",
+  
+  // Brokers sub-routes
+  "criteria": "선택 기준",
+  "market-guide": "시장 상황별 가이드",
+  "list": "브로커 리스트",
   
   // Guides sub-routes
-  "/guides/market-basics": "시장 구조 이해",
-  "/guides/strategy": "전략 구조 학습",
-  "/guides/risk": "리스크 관리",
-  "/guides/why-mt5": "왜 MT5인가",
-  "/guides/before-mt5": "MT5 시작 전 필수 지식",
-  "/guides/mt5-pc": "MT5 PC 가이드",
-  "/guides/mt5-mobile": "MT5 모바일 가이드",
-  "/guides/mt5-manual": "MT5 사용 설명서",
-};
-
-// Category mapping for routes
-const categoryMap: Record<string, { path: string; label: string }> = {
-  "/today": { path: "/today", label: "Today" },
-  "/markets": { path: "/markets", label: "Markets" },
-  "/brokers": { path: "/brokers", label: "Brokers" },
-  "/guides": { path: "/guides", label: "Guides" },
+  "market-basics": "시장 구조 이해",
+  "strategy": "전략 구조 학습",
+  "risk": "리스크 관리",
+  "why-mt5": "왜 MT5인가",
+  "before-mt5": "MT5 시작 전 필수 지식",
+  "mt5-pc": "MT5 PC 가이드",
+  "mt5-mobile": "MT5 모바일 가이드",
+  "mt5-manual": "MT5 사용 설명서",
+  "resources": "자료실",
+  "roadmap": "학습 로드맵",
 };
 
 interface BreadcrumbItem {
@@ -44,29 +49,26 @@ export function Breadcrumb() {
     return null;
   }
   
+  // Split pathname into segments and filter empty ones
+  const segments = pathname.split("/").filter(Boolean);
+  
   const breadcrumbs: BreadcrumbItem[] = [
     { label: "Home", path: "/" }
   ];
   
-  // Find the category for the current path
-  const categoryKey = Object.keys(categoryMap).find(key => pathname.startsWith(key));
-  
-  if (categoryKey) {
-    const category = categoryMap[categoryKey];
+  // Build breadcrumb items from path segments
+  let currentPath = "";
+  segments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    const label = segmentLabels[segment] || segment;
     
-    // Add category if it's not the same as current page
-    if (pathname !== category.path) {
-      breadcrumbs.push({ label: category.label, path: category.path });
+    // Last segment is current page (no link)
+    if (index === segments.length - 1) {
+      breadcrumbs.push({ label });
+    } else {
+      breadcrumbs.push({ label, path: currentPath });
     }
-    
-    // Add current page
-    const currentLabel = routeLabels[pathname] || routeLabels[categoryKey] || pathname.split('/').pop() || '';
-    breadcrumbs.push({ label: currentLabel });
-  } else {
-    // Fallback: just show the current path
-    const currentLabel = routeLabels[pathname] || pathname.split('/').pop() || '';
-    breadcrumbs.push({ label: currentLabel });
-  }
+  });
   
   return (
     <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-6">
