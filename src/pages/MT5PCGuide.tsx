@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import { Monitor, Smartphone, ArrowRight, Download, LogIn, LayoutDashboard, BarChart3, ShoppingCart, Settings, AlertTriangle } from "lucide-react";
+import { Monitor, ArrowRight, LogIn, LayoutDashboard, BarChart3, ShoppingCart, Settings, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { RelatedContent, RelatedItem } from "@/components/RelatedContent";
 
 // Import step images
 import step1LoginMenu from "@/assets/mt5-step1-login-menu.png";
@@ -62,6 +63,25 @@ const steps = [
   },
 ];
 
+const relatedItems: RelatedItem[] = [
+  {
+    title: "MT5 모바일 가이드",
+    description: "모바일에서 모니터링하는 방법",
+    href: "/guide/mt5-mobile",
+  },
+  {
+    title: "MT5 상세 사용 설명서",
+    description: "단계별 상세 클릭 가이드",
+    href: "/guide/mt5-manual",
+  },
+  {
+    title: "리스크 관리",
+    description: "포지션 사이징과 자본 보호 규칙",
+    href: "/education/risk",
+    badge: "STEP 3",
+  },
+];
+
 const MT5PCGuide = () => {
   return (
     <>
@@ -82,19 +102,10 @@ const MT5PCGuide = () => {
             </h1>
             
             {/* Description */}
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               처음 실행부터 차트 설정, 주문까지<br />
               한 단계씩 따라오는 클릭 설명서입니다.
             </p>
-            
-            {/* Mobile Guide Link */}
-            <Link 
-              to="/guide/mt5-mobile" 
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Smartphone className="w-4 h-4" />
-              모바일 가이드 보기 →
-            </Link>
           </div>
         </div>
       </section>
@@ -170,15 +181,8 @@ const MT5PCGuide = () => {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-12 text-center">
-              <Link to="/guide/mt5-manual">
-                <Button variant="hero" size="lg" className="group">
-                  상세 가이드 시작하기
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
+            {/* Related Content */}
+            <RelatedContent items={relatedItems} />
           </div>
         </div>
       </section>
