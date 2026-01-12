@@ -25,6 +25,7 @@ import Roadmap from "./pages/Roadmap";
 import Start from "./pages/Start";
 import Gateway from "./pages/Gateway";
 import About from "./pages/About";
+import MarketDashboard from "./pages/MarketDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/gateway" element={<Gateway />} />
           <Route path="/start" element={<Start />} />
           <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<MarketDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
