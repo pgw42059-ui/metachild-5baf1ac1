@@ -6,14 +6,22 @@ import CompositeSignals from "@/components/dashboard/CompositeSignals";
 import DailyWarning from "@/components/dashboard/DailyWarning";
 import TraderLevelSummary from "@/components/dashboard/TraderLevelSummary";
 import { Clock, RefreshCw } from "lucide-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 const MarketDashboard = () => {
+  const queryClient = useQueryClient();
+  
   const lastUpdated = new Date().toLocaleString("ko-KR", {
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
   });
+
+  const handleRefresh = () => {
+    queryClient.invalidateQueries({ queryKey: ["market-daily"] });
+    queryClient.invalidateQueries({ queryKey: ["daily-warning"] });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,7 +42,11 @@ const MarketDashboard = () => {
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Clock className="w-3.5 h-3.5" />
               <span>최근 업데이트: {lastUpdated}</span>
-              <button className="ml-2 p-1.5 rounded-md hover:bg-muted transition-colors">
+              <button 
+                onClick={handleRefresh}
+                className="ml-2 p-1.5 rounded-md hover:bg-muted transition-colors"
+                title="새로고침"
+              >
                 <RefreshCw className="w-3.5 h-3.5" />
               </button>
             </div>

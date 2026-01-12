@@ -1,67 +1,91 @@
-import FuturesCard, { FuturesData } from "./FuturesCard";
+import { useMarketDaily, symbolMeta } from "@/hooks/useMarketData";
+import FuturesCard, { FuturesData, TrendStatus, VolatilityLevel, DifficultyLevel } from "./FuturesCard";
+import { Loader2, AlertCircle } from "lucide-react";
 
-// Mock data - replace with real data source
-const mockFuturesData: FuturesData[] = [
-  {
-    symbol: "ES",
-    name: "S&P 500 Futures",
-    nameKo: "S&P 500 선물",
-    trend: "bullish",
-    volatility: "medium",
-    difficulty: "medium",
-    comment: "기술주 주도로 상승 중. 저항선 접근으로 단기 조정 가능성 주시.",
-  },
-  {
-    symbol: "NQ",
-    name: "Nasdaq-100 Futures",
-    nameKo: "나스닥 100 선물",
-    trend: "bullish",
-    volatility: "high",
-    difficulty: "hard",
-    comment: "AI 관련주 급등으로 변동성 확대. 갭 리스크 존재.",
-  },
-  {
-    symbol: "CL",
-    name: "WTI Crude Oil Futures",
-    nameKo: "WTI 원유 선물",
-    trend: "bearish",
-    volatility: "high",
-    difficulty: "hard",
-    comment: "수요 둔화 우려로 하락 압력. 지정학적 이슈에 따른 급변동 주의.",
-  },
-  {
-    symbol: "ZN",
-    name: "10-Year T-Note Futures",
-    nameKo: "미국 10년물 국채 선물",
-    trend: "bearish",
-    volatility: "medium",
-    difficulty: "medium",
-    comment: "금리 인상 기대로 채권 가격 하락. FOMC 발언에 민감하게 반응 중.",
-  },
-  {
-    symbol: "SR3",
-    name: "SOFR Futures",
-    nameKo: "단기금리 선물 (SOFR)",
-    trend: "neutral",
-    volatility: "low",
-    difficulty: "easy",
-    comment: "금리 동결 예상 반영. 경제 지표 발표 전까지 제한적 움직임.",
-  },
-  {
-    symbol: "GC",
-    name: "Gold Futures",
-    nameKo: "금 선물",
-    trend: "bullish",
-    volatility: "medium",
-    difficulty: "medium",
-    comment: "달러 약세와 안전자산 선호로 상승세. 주요 지지선 유지 중.",
-  },
-];
+// Map database values to component types
+const mapTrendState = (state: string): TrendStatus => {
+  const mapping: Record<string, TrendStatus> = {
+    bullish: "bullish",
+    neutral: "neutral",
+    bearish: "bearish",
+  };
+  return mapping[state] || "neutral";
+};
+
+const mapVolState = (state: string): VolatilityLevel => {
+  const mapping: Record<string, VolatilityLevel> = {
+    low: "low",
+    normal: "medium",
+    high: "high",
+  };
+  return mapping[state] || "medium";
+};
+
+const mapDifficulty = (state: string): DifficultyLevel => {
+  const mapping: Record<string, DifficultyLevel> = {
+    easy: "easy",
+    normal: "medium",
+    hard: "hard",
+  };
+  return mapping[state] || "medium";
+};
+
+// Symbol display order
+const symbolOrder = ["ES", "NQ", "CL", "ZN", "SOFR", "GC"];
 
 const FuturesCardGrid = () => {
+  const { data, isLoading, error } = useMarketDaily();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
+        <span className="ml-2 text-muted-foreground">데이터 로딩 중...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center py-12 text-loss">
+        <AlertCircle className="w-5 h-5 mr-2" />
+        <span>데이터를 불러오는 데 실패했습니다</span>
+      </div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="glass-card p-8 text-center">
+        <div className="text-muted-foreground">
+          <AlertCircle className="w-8 h-8 mx-auto mb-3 opacity-50" />
+          <p className="text-lg font-medium">오늘의 시장 데이터 준비 중</p>
+          <p className="text-sm mt-1">
+            데이터가 곧 업데이트됩니다. 잠시 후 다시 확인해주세요.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Sort data by symbol order
+  const sortedData = [...data].sort((a, b) => {
+    return symbolOrder.indexOf(a.symbol) - symbolOrder.indexOf(b.symbol);
+  });
+
+  const futuresData: FuturesData[] = sortedData.map((item) => ({
+    symbol: item.symbol,
+    name: symbolMeta[item.symbol]?.name || item.symbol,
+    nameKo: symbolMeta[item.symbol]?.nameKo || item.symbol,
+    trend: mapTrendState(item.trend_state),
+    volatility: mapVolState(item.vol_state),
+    difficulty: mapDifficulty(item.difficulty),
+    comment: item.comment,
+  }));
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {mockFuturesData.map((data) => (
+      {futuresData.map((data) => (
         <FuturesCard key={data.symbol} data={data} />
       ))}
     </div>

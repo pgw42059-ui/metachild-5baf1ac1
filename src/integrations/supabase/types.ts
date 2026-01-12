@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      daily_warning: {
+        Row: {
+          day: string
+          id: string
+          updated_at: string
+          warning_text: string
+        }
+        Insert: {
+          day: string
+          id?: string
+          updated_at?: string
+          warning_text: string
+        }
+        Update: {
+          day?: string
+          id?: string
+          updated_at?: string
+          warning_text?: string
+        }
+        Relationships: []
+      }
+      market_daily: {
+        Row: {
+          comment: string
+          day: string
+          difficulty: string
+          id: string
+          symbol: string
+          trend_state: string
+          updated_at: string
+          vol_state: string
+        }
+        Insert: {
+          comment: string
+          day: string
+          difficulty: string
+          id?: string
+          symbol: string
+          trend_state: string
+          updated_at?: string
+          vol_state: string
+        }
+        Update: {
+          comment?: string
+          day?: string
+          difficulty?: string
+          id?: string
+          symbol?: string
+          trend_state?: string
+          updated_at?: string
+          vol_state?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
