@@ -66,8 +66,7 @@ const steps = [
 
 export default function Roadmap() {
   return (
-    <>
-      <div className="container px-4">
+    <div className="container px-4">
         {/* Hero Section */}
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -136,21 +135,19 @@ export default function Roadmap() {
             ))}
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-12">
-            <p className="text-sm text-muted-foreground mb-4">
-              어디서부터 시작해야 할지 모르겠다면
-            </p>
-            <Link
-              to="/guide/mt5-pc"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
-            >
-              MT5 기초 가이드부터 시작하기
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <p className="text-sm text-muted-foreground mb-4">
+            어디서부터 시작해야 할지 모르겠다면
+          </p>
+          <Link
+            to="/guide/mt5-pc"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+          >
+            MT5 기초 가이드부터 시작하기
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-      </div>
-    </>
+    </div>
   );
 }

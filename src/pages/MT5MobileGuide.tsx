@@ -89,9 +89,8 @@ const MistakeItem = ({ children }: { children: React.ReactNode }) => (
 
 const MT5MobileGuide = () => {
   return (
-    <>
-      <div className="container mx-auto px-4 max-w-3xl">
-        {/* Page Header */}
+    <div className="container mx-auto px-4 max-w-3xl">
+      {/* Page Header */}
         <div className="mb-10 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
             <Smartphone className="w-4 h-4" />
@@ -293,25 +292,23 @@ const MT5MobileGuide = () => {
             </div>
           </StepCard>
 
-          {/* CTA */}
-          <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Link 
-              to="/guide/mt5-manual" 
-              className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-            >
-              <Monitor className="w-4 h-4" />
-              PC 가이드 보기
-            </Link>
-            <Link to="/education">
-              <Button variant="ghost" className="group text-primary hover:text-primary">
-                다음 단계: MT5가 왜 '실행 환경'인지 이해하기
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
+        {/* CTA */}
+        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <Link 
+            to="/guide/mt5-manual" 
+            className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+          >
+            <Monitor className="w-4 h-4" />
+            PC 가이드 보기
+          </Link>
+          <Link to="/education">
+            <Button variant="ghost" className="group text-primary hover:text-primary">
+              다음 단계: MT5가 왜 '실행 환경'인지 이해하기
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

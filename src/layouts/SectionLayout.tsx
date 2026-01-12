@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SubNavigation } from "@/components/SubNavigation";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Outlet } from "react-router-dom";
 
 interface SectionLayoutProps {
@@ -14,6 +15,9 @@ export function SectionLayout({ children }: SectionLayoutProps) {
       <SubNavigation />
       
       <main className="pt-28 pb-16">
+        <div className="container px-4">
+          <Breadcrumb />
+        </div>
         {children || <Outlet />}
       </main>
       
