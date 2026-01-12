@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SubNavigation } from "@/components/SubNavigation";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import MarketRegimeSummary from "@/components/dashboard/MarketRegimeSummary";
 import FuturesCardGrid from "@/components/dashboard/FuturesCardGrid";
 import CompositeSignals from "@/components/dashboard/CompositeSignals";
@@ -32,6 +33,7 @@ const MarketDashboard = () => {
       
       <main className="pt-28 pb-16">
         <div className="container mx-auto px-4 max-w-7xl">
+          <Breadcrumb />
           {/* Page Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
