@@ -10,12 +10,12 @@ const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> 
     { label: "오늘의 핵심 경고", href: "/today#warning" },
   ],
   markets: [
-    { label: "Top 6 Dashboard", href: "/markets" },
-    { label: "Nasdaq", href: "/markets#nasdaq" },
-    { label: "S&P 500", href: "/markets#sp500" },
-    { label: "Oil", href: "/markets#oil" },
-    { label: "Gold", href: "/markets#gold" },
-    { label: "Rates", href: "/markets#rates" },
+    { label: "Top 6 Dashboard", href: "/markets/overview" },
+    { label: "Nasdaq", href: "/markets/nasdaq" },
+    { label: "S&P 500", href: "/markets/sp500" },
+    { label: "Oil", href: "/markets/oil" },
+    { label: "Gold", href: "/markets/gold" },
+    { label: "Rates", href: "/markets/rates" },
   ],
   brokers: [
     { label: "브로커 선택 기준", href: "/brokers#criteria" },
