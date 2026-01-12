@@ -5,8 +5,9 @@ import FuturesCardGrid from "@/components/dashboard/FuturesCardGrid";
 import CompositeSignals from "@/components/dashboard/CompositeSignals";
 import DailyWarning from "@/components/dashboard/DailyWarning";
 import TraderLevelSummary from "@/components/dashboard/TraderLevelSummary";
-import { Clock, RefreshCw } from "lucide-react";
+import { Clock, RefreshCw, ArrowRight } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const MarketDashboard = () => {
   const queryClient = useQueryClient();
@@ -73,6 +74,22 @@ const MarketDashboard = () => {
           {/* [3] Composite Signals */}
           <section className="mb-8">
             <CompositeSignals />
+          </section>
+
+          {/* Broker Guide Link - Natural flow from market analysis */}
+          <section className="mb-8">
+            <div className="glass-card p-5 border-border/50">
+              <p className="text-muted-foreground text-sm mb-3">
+                오늘 같은 시장에서는 어떤 거래 환경이 필요한지 확인해 보세요.
+              </p>
+              <Link 
+                to="/broker-guide"
+                className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                시장 상황별 브로커 환경 가이드 보기
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </section>
 
           {/* [5] Trader Level Summary */}
