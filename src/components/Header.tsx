@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Download, Menu, X, Globe, Bot, FileText, ChevronDown, Monitor, Smartphone } from "lucide-react";
+import { BookOpen, Download, Menu, X, Globe, Bot, FileText, ChevronDown, Monitor, Smartphone, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import logoMark from "@/assets/logo-mark.png";
 
 const navItems = [
+  { label: "대시보드", href: "/dashboard", icon: BarChart3 },
   { label: "교육 센터", href: "/education", icon: BookOpen },
   { label: "EA 마켓", href: "/marketplace", icon: Bot },
   { label: "무료 자료", href: "/resources", icon: Download },
