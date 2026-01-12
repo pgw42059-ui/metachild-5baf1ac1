@@ -1,11 +1,6 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { SubNavigation } from "@/components/SubNavigation";
-import { Breadcrumb } from "@/components/Breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  ArrowLeft, 
   Zap, 
   DollarSign, 
   Clock, 
@@ -17,7 +12,6 @@ import {
   Info,
   XCircle
 } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const selectionCriteria = [
   {
@@ -151,208 +145,199 @@ const brokers = [
 
 export default function BrokerGuide() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <SubNavigation />
-      
-      <main className="pt-28 pb-16">
-        {/* Hero Section */}
-        <section className="container mx-auto px-4 mb-16">
-          <Breadcrumb />
+    <>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 mb-16">
+        <div className="max-w-3xl">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            시장 상황에 따라 달라지는 브로커 선택 가이드
+          </h1>
           
-          <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              시장 상황에 따라 달라지는 브로커 선택 가이드
-            </h1>
-            
-            <div className="glass-card p-6 mb-6">
-              <p className="text-xl text-foreground font-medium mb-3">
-                "브로커는 수익을 만들어주지 않습니다.
-                <br />
-                하지만 잘못된 브로커는 손실을 키울 수 있습니다."
-              </p>
-              <p className="text-muted-foreground">
-                이 페이지는 특정 브로커를 추천하지 않습니다. 
-                시장 상황에 따른 거래 환경 선택 기준을 안내하여, 
-                스스로 판단할 수 있도록 돕습니다.
-              </p>
-            </div>
+          <div className="glass-card p-6 mb-6">
+            <p className="text-xl text-foreground font-medium mb-3">
+              "브로커는 수익을 만들어주지 않습니다.
+              <br />
+              하지만 잘못된 브로커는 손실을 키울 수 있습니다."
+            </p>
+            <p className="text-muted-foreground">
+              이 페이지는 특정 브로커를 추천하지 않습니다. 
+              시장 상황에 따른 거래 환경 선택 기준을 안내하여, 
+              스스로 판단할 수 있도록 돕습니다.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Selection Criteria Section */}
-        <section className="container mx-auto px-4 mb-16">
-          <h2 className="text-2xl font-bold text-foreground mb-6">
-            브로커 선택의 기준
-          </h2>
-          
-          <div className="grid gap-4 md:grid-cols-2">
-            {selectionCriteria.map((criteria, index) => (
-              <Card key={index} className="glass-card border-border/50">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-3 text-lg">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <criteria.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    {criteria.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {criteria.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Situation Guide Section */}
-        <section className="container mx-auto px-4 mb-16">
-          <h2 className="text-2xl font-bold text-foreground mb-6">
-            상황별 브로커 환경 가이드
-          </h2>
-          
-          <div className="grid gap-4 md:grid-cols-3">
-            {situationGuides.map((guide, index) => (
-              <Card 
-                key={index} 
-                className={`glass-card border-l-4 ${guide.colorClass}`}
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex items-center gap-3 mb-2">
-                    <guide.icon className="w-5 h-5 text-primary" />
-                    <span className="text-xs text-muted-foreground uppercase tracking-wide">
-                      {guide.situation}
-                    </span>
+      {/* Selection Criteria Section */}
+      <section className="container mx-auto px-4 mb-16">
+        <h2 className="text-2xl font-bold text-foreground mb-6">
+          브로커 선택의 기준
+        </h2>
+        
+        <div className="grid gap-4 md:grid-cols-2">
+          {selectionCriteria.map((criteria, index) => (
+            <Card key={index} className="glass-card border-border/50">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center gap-3 text-lg">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <criteria.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <CardTitle className="text-base text-foreground">
-                    {guide.priority}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {guide.recommendations.map((rec, recIndex) => (
+                  {criteria.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {criteria.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Situation Guide Section */}
+      <section className="container mx-auto px-4 mb-16">
+        <h2 className="text-2xl font-bold text-foreground mb-6">
+          상황별 브로커 환경 가이드
+        </h2>
+        
+        <div className="grid gap-4 md:grid-cols-3">
+          {situationGuides.map((guide, index) => (
+            <Card 
+              key={index} 
+              className={`glass-card border-l-4 ${guide.colorClass}`}
+            >
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-3 mb-2">
+                  <guide.icon className="w-5 h-5 text-primary" />
+                  <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                    {guide.situation}
+                  </span>
+                </div>
+                <CardTitle className="text-base text-foreground">
+                  {guide.priority}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {guide.recommendations.map((rec, recIndex) => (
+                    <li 
+                      key={recIndex}
+                      className="text-sm text-muted-foreground flex items-start gap-2"
+                    >
+                      <span className="text-primary mt-1">→</span>
+                      {rec}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Broker Cards Section */}
+      <section className="container mx-auto px-4 mb-16">
+        <h2 className="text-2xl font-bold text-foreground mb-2">
+          주요 브로커 살펴보기
+        </h2>
+        <p className="text-muted-foreground mb-6">
+          순위나 점수 없이, 각 브로커의 특성만 정리했습니다. 선택은 본인의 거래 스타일에 맞게 하세요.
+        </p>
+        
+        <div className="grid gap-6 md:grid-cols-2">
+          {brokers.map((broker, index) => (
+            <Card key={index} className="glass-card">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl text-foreground">
+                  {broker.name}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-5">
+                {/* Suitable cases */}
+                <div>
+                  <p className="text-sm font-medium text-foreground mb-2">
+                    이 브로커가 적합한 경우
+                  </p>
+                  <ul className="space-y-1.5">
+                    {broker.suitable.map((item, itemIndex) => (
                       <li 
-                        key={recIndex}
+                        key={itemIndex}
                         className="text-sm text-muted-foreground flex items-start gap-2"
                       >
-                        <span className="text-primary mt-1">→</span>
-                        {rec}
+                        <span className="text-primary">•</span>
+                        {item}
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+                </div>
+                
+                {/* Cautions */}
+                <div>
+                  <p className="text-sm font-medium text-orange-400 mb-2 flex items-center gap-1.5">
+                    <AlertTriangle className="w-3.5 h-3.5" />
+                    주의할 점
+                  </p>
+                  <ul className="space-y-1.5">
+                    {broker.cautions.map((item, itemIndex) => (
+                      <li 
+                        key={itemIndex}
+                        className="text-sm text-muted-foreground flex items-start gap-2"
+                      >
+                        <span className="text-orange-400">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-        {/* Broker Cards Section */}
-        <section className="container mx-auto px-4 mb-16">
-          <h2 className="text-2xl font-bold text-foreground mb-2">
-            주요 브로커 살펴보기
-          </h2>
-          <p className="text-muted-foreground mb-6">
-            순위나 점수 없이, 각 브로커의 특성만 정리했습니다. 선택은 본인의 거래 스타일에 맞게 하세요.
+                {/* Not suitable */}
+                <div>
+                  <p className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
+                    <XCircle className="w-3.5 h-3.5" />
+                    이런 분들께는 맞지 않을 수 있습니다
+                  </p>
+                  <ul className="space-y-1.5">
+                    {broker.notSuitable.map((item, itemIndex) => (
+                      <li 
+                        key={itemIndex}
+                        className="text-sm text-muted-foreground/70 flex items-start gap-2"
+                      >
+                        <span className="text-muted-foreground/50">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="w-full mt-3"
+                  asChild
+                >
+                  <a href={broker.link} target="_blank" rel="noopener noreferrer">
+                    공식 사이트에서 거래 조건 확인
+                    <ExternalLink className="w-3 h-3 ml-2" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Affiliate Disclosure */}
+      <section className="container mx-auto px-4">
+        <div className="glass-card p-4 flex items-start gap-3 max-w-2xl">
+          <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            본 페이지의 일부 링크는 제휴 링크를 포함할 수 있으며, 
+            이용자에게 추가 비용을 발생시키지 않습니다. 
+            제휴 여부와 관계없이 정보의 객관성을 유지하고자 노력합니다.
           </p>
-          
-          <div className="grid gap-6 md:grid-cols-2">
-            {brokers.map((broker, index) => (
-              <Card key={index} className="glass-card">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl text-foreground">
-                    {broker.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-5">
-                  {/* Suitable cases */}
-                  <div>
-                    <p className="text-sm font-medium text-foreground mb-2">
-                      이 브로커가 적합한 경우
-                    </p>
-                    <ul className="space-y-1.5">
-                      {broker.suitable.map((item, itemIndex) => (
-                        <li 
-                          key={itemIndex}
-                          className="text-sm text-muted-foreground flex items-start gap-2"
-                        >
-                          <span className="text-primary">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {/* Cautions */}
-                  <div>
-                    <p className="text-sm font-medium text-orange-400 mb-2 flex items-center gap-1.5">
-                      <AlertTriangle className="w-3.5 h-3.5" />
-                      주의할 점
-                    </p>
-                    <ul className="space-y-1.5">
-                      {broker.cautions.map((item, itemIndex) => (
-                        <li 
-                          key={itemIndex}
-                          className="text-sm text-muted-foreground flex items-start gap-2"
-                        >
-                          <span className="text-orange-400">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Not suitable */}
-                  <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
-                      <XCircle className="w-3.5 h-3.5" />
-                      이런 분들께는 맞지 않을 수 있습니다
-                    </p>
-                    <ul className="space-y-1.5">
-                      {broker.notSuitable.map((item, itemIndex) => (
-                        <li 
-                          key={itemIndex}
-                          className="text-sm text-muted-foreground/70 flex items-start gap-2"
-                        >
-                          <span className="text-muted-foreground/50">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="w-full mt-3"
-                    asChild
-                  >
-                    <a href={broker.link} target="_blank" rel="noopener noreferrer">
-                      공식 사이트에서 거래 조건 확인
-                      <ExternalLink className="w-3 h-3 ml-2" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Affiliate Disclosure */}
-        <section className="container mx-auto px-4">
-          <div className="glass-card p-4 flex items-start gap-3 max-w-2xl">
-            <Info className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              본 페이지의 일부 링크는 제휴 링크를 포함할 수 있으며, 
-              이용자에게 추가 비용을 발생시키지 않습니다. 
-              제휴 여부와 관계없이 정보의 객관성을 유지하고자 노력합니다.
-            </p>
-          </div>
-        </section>
-      </main>
-      
-      <Footer />
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

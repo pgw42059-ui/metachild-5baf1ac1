@@ -1,18 +1,18 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SubNavigation } from "@/components/SubNavigation";
+import { CategorySubNav } from "@/components/CategorySubNav";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Outlet } from "react-router-dom";
 
-interface SectionLayoutProps {
+interface GuidesLayoutProps {
   children?: React.ReactNode;
 }
 
-export function SectionLayout({ children }: SectionLayoutProps) {
+export function GuidesLayout({ children }: GuidesLayoutProps) {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <SubNavigation />
+      <CategorySubNav category="guides" />
       
       <main className="pt-28 pb-16">
         <div className="container px-4">

@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
+export type CategoryType = "today" | "markets" | "brokers" | "guides";
+
 // 대분류별 중분류 메뉴 정의
-const subNavigationMap: Record<string, { label: string; href: string }[]> = {
+const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> = {
   today: [
     { label: "오늘의 시장 요약", href: "/today" },
     { label: "오늘의 핵심 경고", href: "/today#warning" },
@@ -27,25 +29,13 @@ const subNavigationMap: Record<string, { label: string; href: string }[]> = {
   ],
 };
 
-// 경로에 따른 현재 대분류 결정
-function getCurrentCategory(pathname: string): string | null {
-  if (pathname.startsWith("/today")) return "today";
-  if (pathname.startsWith("/markets")) return "markets";
-  if (pathname.startsWith("/brokers")) return "brokers";
-  if (pathname.startsWith("/guides")) return "guides";
-  return null;
+interface CategorySubNavProps {
+  category: CategoryType;
 }
 
-export function SubNavigation() {
+export function CategorySubNav({ category }: CategorySubNavProps) {
   const location = useLocation();
-  const currentCategory = getCurrentCategory(location.pathname);
-
-  // 대분류에 해당하지 않으면 서브 네비 표시 안 함
-  if (!currentCategory || !subNavigationMap[currentCategory]) {
-    return null;
-  }
-
-  const subItems = subNavigationMap[currentCategory];
+  const subItems = subNavigationMap[category];
 
   // 현재 활성화된 항목 확인
   const isActive = (href: string) => {
