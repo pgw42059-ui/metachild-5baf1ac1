@@ -26,6 +26,7 @@ import Start from "./pages/Start";
 import Gateway from "./pages/Gateway";
 import About from "./pages/About";
 import MarketDashboard from "./pages/MarketDashboard";
+import BrokerGuide from "./pages/BrokerGuide";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/start" element={<Start />} />
           <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<MarketDashboard />} />
+          <Route path="/broker-guide" element={<BrokerGuide />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
