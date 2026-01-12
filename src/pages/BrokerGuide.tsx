@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SubNavigation } from "@/components/SubNavigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
@@ -151,8 +152,9 @@ export default function BrokerGuide() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <SubNavigation />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-28 pb-16">
         {/* Hero Section */}
         <section className="container mx-auto px-4 mb-16">
           <Link 
