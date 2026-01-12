@@ -21,7 +21,7 @@ const levels = [
       "차트 열기, 버튼 조작법 안내",
     ],
     cta: "메타트레이더 처음입니다",
-    href: "/education/why-mt5",
+    href: "/guides/why-mt5",
     color: "primary",
   },
   {
@@ -40,7 +40,7 @@ const levels = [
       "무료 템플릿, 체크리스트 다운로드",
     ],
     cta: "기본 사용은 해봤습니다",
-    href: "/resources",
+    href: "/guides/resources",
     color: "accent",
   },
   {
@@ -59,7 +59,7 @@ const levels = [
       "리스크 설계 기준과 구독 구조 설명",
     ],
     cta: "전략·자동매매를 이해합니다",
-    href: "/marketplace",
+    href: "/markets",
     color: "secondary",
   },
 ];

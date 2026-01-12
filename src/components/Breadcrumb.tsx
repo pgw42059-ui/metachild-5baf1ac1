@@ -6,37 +6,28 @@ const routeLabels: Record<string, string> = {
   // Main categories
   "/today": "Today",
   "/markets": "Markets",
-  "/broker-guide": "Brokers",
-  "/education": "Guides",
-  "/resources": "자료실",
-  "/roadmap": "학습 로드맵",
-  
-  // Markets sub-routes
-  "/markets/dashboard": "Top 6 Dashboard",
-  "/markets/nasdaq": "Nasdaq",
-  "/markets/sp500": "S&P 500",
-  "/markets/oil": "Oil",
-  "/markets/gold": "Gold",
-  "/markets/rates": "Rates",
+  "/brokers": "Brokers",
+  "/guides": "Guides",
+  "/guides/resources": "자료실",
+  "/guides/roadmap": "학습 로드맵",
   
   // Guides sub-routes
-  "/education/market-basics": "시장 구조 이해",
-  "/education/strategy": "전략 구조 학습",
-  "/education/risk": "리스크 관리",
-  "/guide/mt5-pc": "MT5 PC 가이드",
-  "/guide/mt5-mobile": "MT5 모바일 가이드",
-  "/guide/mt5-manual": "MT5 사용 설명서",
+  "/guides/market-basics": "시장 구조 이해",
+  "/guides/strategy": "전략 구조 학습",
+  "/guides/risk": "리스크 관리",
+  "/guides/why-mt5": "왜 MT5인가",
+  "/guides/before-mt5": "MT5 시작 전 필수 지식",
+  "/guides/mt5-pc": "MT5 PC 가이드",
+  "/guides/mt5-mobile": "MT5 모바일 가이드",
+  "/guides/mt5-manual": "MT5 사용 설명서",
 };
 
 // Category mapping for routes
 const categoryMap: Record<string, { path: string; label: string }> = {
   "/today": { path: "/today", label: "Today" },
   "/markets": { path: "/markets", label: "Markets" },
-  "/broker-guide": { path: "/broker-guide", label: "Brokers" },
-  "/education": { path: "/education", label: "Guides" },
-  "/guide": { path: "/education", label: "Guides" },
-  "/resources": { path: "/education", label: "Guides" },
-  "/roadmap": { path: "/education", label: "Guides" },
+  "/brokers": { path: "/brokers", label: "Brokers" },
+  "/guides": { path: "/guides", label: "Guides" },
 };
 
 interface BreadcrumbItem {

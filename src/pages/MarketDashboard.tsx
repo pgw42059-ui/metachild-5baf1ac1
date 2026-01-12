@@ -87,7 +87,7 @@ const MarketDashboard = () => {
                 오늘 같은 시장에서는 어떤 거래 환경이 필요한지 확인해 보세요.
               </p>
               <Link 
-                to="/broker-guide"
+                to="/brokers"
                 className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors font-medium"
               >
                 시장 상황별 브로커 환경 가이드 보기

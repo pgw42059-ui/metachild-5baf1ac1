@@ -330,7 +330,7 @@ const Education = () => {
                         </li>
                       </ul>
                       <Button asChild variant="outline" size="sm" className="gap-2">
-                        <Link to="/guide/mt5-manual">
+                        <Link to="/guides/mt5-manual">
                           기초 가이드 보기
                           <ArrowRight className="w-3 h-3" />
                         </Link>
@@ -368,7 +368,7 @@ const Education = () => {
                         </li>
                       </ul>
                       <Button asChild variant="outline" size="sm" className="gap-2">
-                        <Link to="/resources">
+                        <Link to="/guides/resources">
                           도구 및 리소스 보기
                           <ArrowRight className="w-3 h-3" />
                         </Link>
@@ -406,7 +406,7 @@ const Education = () => {
                         </li>
                       </ul>
                       <Button asChild variant="outline" size="sm" className="gap-2">
-                        <Link to="/marketplace">
+                        <Link to="/markets">
                           전략 문서 보기
                           <ArrowRight className="w-3 h-3" />
                         </Link>

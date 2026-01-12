@@ -90,17 +90,17 @@ const relatedItems: RelatedItem[] = [
   {
     title: "MT5 PC 가이드",
     description: "PC에서 MT5 설정하는 방법",
-    href: "/guide/mt5-pc",
+    href: "/guides/mt5-pc",
   },
   {
     title: "MT5 상세 사용 설명서",
     description: "단계별 상세 클릭 가이드",
-    href: "/guide/mt5-manual",
+    href: "/guides/mt5-manual",
   },
   {
     title: "리스크 관리",
     description: "포지션 사이징과 자본 보호 규칙",
-    href: "/education/risk",
+    href: "/guides/risk",
     badge: "STEP 3",
   },
 ];
