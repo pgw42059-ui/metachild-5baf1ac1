@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SubNavigation } from "@/components/SubNavigation";
 import MarketRegimeSummary from "@/components/dashboard/MarketRegimeSummary";
 import FuturesCardGrid from "@/components/dashboard/FuturesCardGrid";
 import CompositeSignals from "@/components/dashboard/CompositeSignals";
@@ -27,8 +28,9 @@ const MarketDashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <SubNavigation />
       
-      <main className="pt-20 pb-16">
+      <main className="pt-28 pb-16">
         <div className="container mx-auto px-4 max-w-7xl">
           {/* Page Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
