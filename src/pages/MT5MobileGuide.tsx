@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { AlertTriangle, CheckCircle2, ArrowRight, Smartphone, Eye, Bell, Monitor, XCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AlertTriangle, CheckCircle2, Smartphone, Eye, Bell, Monitor, XCircle } from "lucide-react";
+import { RelatedContent, RelatedItem } from "@/components/RelatedContent";
 
 const WarningBox = ({ children }: { children: React.ReactNode }) => (
   <div className="flex gap-3 p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/30 my-4">
@@ -87,6 +86,25 @@ const MistakeItem = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+const relatedItems: RelatedItem[] = [
+  {
+    title: "MT5 PC 가이드",
+    description: "PC에서 MT5 설정하는 방법",
+    href: "/guide/mt5-pc",
+  },
+  {
+    title: "MT5 상세 사용 설명서",
+    description: "단계별 상세 클릭 가이드",
+    href: "/guide/mt5-manual",
+  },
+  {
+    title: "리스크 관리",
+    description: "포지션 사이징과 자본 보호 규칙",
+    href: "/education/risk",
+    badge: "STEP 3",
+  },
+];
+
 const MT5MobileGuide = () => {
   return (
     <div className="container mx-auto px-4 max-w-3xl">
@@ -103,15 +121,6 @@ const MT5MobileGuide = () => {
             모바일 MT5는 <strong className="text-foreground">모니터링 전용</strong>입니다.<br />
             EA 실행, 최적화, 복잡한 분석은 PC에서만 가능합니다.
           </p>
-          
-          {/* PC Guide Link */}
-          <Link 
-            to="/guide/mt5-manual" 
-            className="inline-flex items-center gap-2 mt-6 text-sm text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Monitor className="w-4 h-4" />
-            PC 버전 가이드 보기 →
-          </Link>
         </div>
 
           {/* Important Notice */}
@@ -292,22 +301,8 @@ const MT5MobileGuide = () => {
             </div>
           </StepCard>
 
-        {/* CTA */}
-        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link 
-            to="/guide/mt5-manual" 
-            className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
-          >
-            <Monitor className="w-4 h-4" />
-            PC 가이드 보기
-          </Link>
-          <Link to="/education">
-            <Button variant="ghost" className="group text-primary hover:text-primary">
-              다음 단계: MT5가 왜 '실행 환경'인지 이해하기
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-        </div>
+        {/* Related Content */}
+        <RelatedContent items={relatedItems} />
     </div>
   );
 };
