@@ -12,7 +12,8 @@ import {
   Minus,
   Moon,
   ExternalLink,
-  Info
+  Info,
+  XCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -79,13 +80,17 @@ const brokers = [
   {
     name: "Pepperstone",
     suitable: [
-      "스캘핑, 단타 위주 트레이더",
-      "체결 속도가 중요한 경우",
-      "MT5 + cTrader 다양한 플랫폼 원하는 경우"
+      "나스닥·S&P 단타 위주 거래",
+      "변동성이 큰 장에서 빠른 체결이 필요한 경우",
+      "짧은 보유 시간 중심 트레이딩"
     ],
     cautions: [
-      "일부 계좌 유형은 최소 입금액이 높음",
-      "한국어 지원이 제한적일 수 있음"
+      "스프레드는 평균 수준",
+      "장기 보유 시 스왑 비용 발생 가능"
+    ],
+    notSuitable: [
+      "스윙·중장기 위주 트레이더",
+      "최소 비용만을 최우선으로 보는 경우"
     ],
     link: "#"
   },
@@ -94,11 +99,15 @@ const brokers = [
     suitable: [
       "낮은 스프레드를 우선시하는 트레이더",
       "EA/알고리즘 트레이딩 사용자",
-      "대량 주문 처리가 필요한 경우"
+      "대량 주문을 자주 처리하는 경우"
     ],
     cautions: [
       "교육 자료가 상대적으로 적음",
       "일부 결제 수단 제한"
+    ],
+    notSuitable: [
+      "초보자로서 교육 콘텐츠가 필요한 경우",
+      "다양한 입출금 옵션이 중요한 경우"
     ],
     link: "#"
   },
@@ -106,25 +115,33 @@ const brokers = [
     name: "XM",
     suitable: [
       "입문자, 소액으로 시작하려는 경우",
-      "다양한 프로모션 활용을 원하는 경우",
+      "보너스/프로모션 활용을 원하는 경우",
       "한국어 지원이 필요한 경우"
     ],
     cautions: [
       "스프레드가 상대적으로 넓을 수 있음",
       "프로모션 조건을 꼼꼼히 확인 필요"
     ],
+    notSuitable: [
+      "타이트한 스프레드가 필수인 스캘퍼",
+      "고빈도 거래로 비용에 민감한 경우"
+    ],
     link: "#"
   },
   {
     name: "Exness",
     suitable: [
-      "무제한 레버리지가 필요한 고급 트레이더",
       "빠른 출금을 중시하는 경우",
-      "다양한 암호화폐 입출금 원하는 경우"
+      "다양한 암호화폐 입출금을 원하는 경우",
+      "높은 레버리지를 활용할 줄 아는 경험자"
     ],
     cautions: [
       "높은 레버리지는 리스크도 높음",
       "일부 국가에서 규제 상태 확인 필요"
+    ],
+    notSuitable: [
+      "레버리지 관리 경험이 부족한 초보자",
+      "보수적인 리스크 관리를 선호하는 경우"
     ],
     link: "#"
   }
@@ -243,20 +260,21 @@ export default function BrokerGuide() {
             순위나 점수 없이, 각 브로커의 특성만 정리했습니다. 선택은 본인의 거래 스타일에 맞게 하세요.
           </p>
           
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {brokers.map((broker, index) => (
               <Card key={index} className="glass-card">
-                <CardHeader className="pb-3">
+                <CardHeader className="pb-4">
                   <CardTitle className="text-xl text-foreground">
                     {broker.name}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-5">
+                  {/* Suitable cases */}
                   <div>
                     <p className="text-sm font-medium text-foreground mb-2">
-                      이런 경우 적합할 수 있음
+                      이 브로커가 적합한 경우
                     </p>
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {broker.suitable.map((item, itemIndex) => (
                         <li 
                           key={itemIndex}
@@ -269,12 +287,13 @@ export default function BrokerGuide() {
                     </ul>
                   </div>
                   
+                  {/* Cautions */}
                   <div>
-                    <p className="text-sm font-medium text-orange-400 mb-2 flex items-center gap-1">
-                      <AlertTriangle className="w-3 h-3" />
+                    <p className="text-sm font-medium text-orange-400 mb-2 flex items-center gap-1.5">
+                      <AlertTriangle className="w-3.5 h-3.5" />
                       주의할 점
                     </p>
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {broker.cautions.map((item, itemIndex) => (
                         <li 
                           key={itemIndex}
@@ -286,15 +305,34 @@ export default function BrokerGuide() {
                       ))}
                     </ul>
                   </div>
+
+                  {/* Not suitable */}
+                  <div>
+                    <p className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5">
+                      <XCircle className="w-3.5 h-3.5" />
+                      이런 분들께는 맞지 않을 수 있습니다
+                    </p>
+                    <ul className="space-y-1.5">
+                      {broker.notSuitable.map((item, itemIndex) => (
+                        <li 
+                          key={itemIndex}
+                          className="text-sm text-muted-foreground/70 flex items-start gap-2"
+                        >
+                          <span className="text-muted-foreground/50">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="w-full mt-2"
+                    className="w-full mt-3"
                     asChild
                   >
                     <a href={broker.link} target="_blank" rel="noopener noreferrer">
-                      공식 사이트에서 조건 확인
+                      공식 사이트에서 거래 조건 확인
                       <ExternalLink className="w-3 h-3 ml-2" />
                     </a>
                   </Button>
