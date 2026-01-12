@@ -116,7 +116,7 @@ export default function BeforeMT5() {
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                <Link to="/education/beginner/mt5-setup">
+                <Link to="/guides/mt5-pc">
                   MT5 구조를 기준으로 세팅하는 방법 보기
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

@@ -24,13 +24,13 @@ const relatedItems: RelatedItem[] = [
   {
     title: "전략 구조 학습",
     description: "진입/청산 로직, 시간대, 손익비 설계 원리",
-    href: "/education/strategy",
+    href: "/guides/strategy",
     badge: "STEP 2",
   },
   {
     title: "리스크 관리",
     description: "포지션 사이징, 드로우다운 관리, 자본 보호 규칙",
-    href: "/education/risk",
+    href: "/guides/risk",
     badge: "STEP 3",
   },
 ];

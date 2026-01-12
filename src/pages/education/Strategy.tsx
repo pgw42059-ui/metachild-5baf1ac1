@@ -24,13 +24,13 @@ const relatedItems: RelatedItem[] = [
   {
     title: "시장 구조 이해",
     description: "지수선물, 브로커, 스프레드의 기본 개념",
-    href: "/education/market-basics",
+    href: "/guides/market-basics",
     badge: "STEP 1",
   },
   {
     title: "리스크 관리",
     description: "포지션 사이징, 드로우다운 관리, 자본 보호 규칙",
-    href: "/education/risk",
+    href: "/guides/risk",
     badge: "STEP 3",
   },
 ];

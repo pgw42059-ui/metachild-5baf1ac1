@@ -67,17 +67,17 @@ const relatedItems: RelatedItem[] = [
   {
     title: "MT5 모바일 가이드",
     description: "모바일에서 모니터링하는 방법",
-    href: "/guide/mt5-mobile",
+    href: "/guides/mt5-mobile",
   },
   {
     title: "MT5 상세 사용 설명서",
     description: "단계별 상세 클릭 가이드",
-    href: "/guide/mt5-manual",
+    href: "/guides/mt5-manual",
   },
   {
     title: "리스크 관리",
     description: "포지션 사이징과 자본 보호 규칙",
-    href: "/education/risk",
+    href: "/guides/risk",
     badge: "STEP 3",
   },
 ];

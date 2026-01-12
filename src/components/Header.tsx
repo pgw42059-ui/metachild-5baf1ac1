@@ -13,23 +13,23 @@ const mainCategories = [
   },
   { 
     label: "Today", 
-    href: "/dashboard",
-    matchPaths: ["/dashboard"]
+    href: "/today",
+    matchPaths: ["/today"]
   },
   { 
     label: "Markets", 
-    href: "/marketplace",
-    matchPaths: ["/marketplace"]
+    href: "/markets",
+    matchPaths: ["/markets"]
   },
   { 
     label: "Brokers", 
-    href: "/broker-guide",
-    matchPaths: ["/broker-guide"]
+    href: "/brokers",
+    matchPaths: ["/brokers"]
   },
   { 
     label: "Guides", 
-    href: "/education",
-    matchPaths: ["/education", "/guide", "/resources", "/roadmap"]
+    href: "/guides",
+    matchPaths: ["/guides"]
   },
 ];
 

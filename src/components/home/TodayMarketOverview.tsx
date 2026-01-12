@@ -132,7 +132,7 @@ const TodayMarketOverview = () => {
         {/* Quick Navigation */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Link
-            to="/broker-guide"
+            to="/brokers"
             className="glass-card p-4 border border-border/50 hover:border-primary/30 transition-all group"
           >
             <h3 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">
@@ -144,7 +144,7 @@ const TodayMarketOverview = () => {
           </Link>
 
           <Link
-            to="/education"
+            to="/guides"
             className="glass-card p-4 border border-border/50 hover:border-primary/30 transition-all group"
           >
             <h3 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">
@@ -156,7 +156,7 @@ const TodayMarketOverview = () => {
           </Link>
 
           <Link
-            to="/guide/mt5-pc"
+            to="/guides/mt5-pc"
             className="glass-card p-4 border border-border/50 hover:border-primary/30 transition-all group"
           >
             <h3 className="font-medium text-foreground mb-1 group-hover:text-primary transition-colors">

@@ -45,28 +45,28 @@ const App = () => (
           <Route path="/start" element={<Start />} />
           <Route path="/about" element={<About />} />
           
-          {/* Today section */}
-          <Route path="/dashboard" element={<MarketDashboard />} />
+          {/* Today section - /today/* */}
+          <Route path="/today" element={<MarketDashboard />} />
           
-          {/* Markets section */}
-          <Route path="/marketplace" element={<Marketplace />} />
+          {/* Markets section - /markets/* */}
+          <Route path="/markets" element={<Marketplace />} />
           
-          {/* Brokers section */}
-          <Route path="/broker-guide" element={<BrokerGuide />} />
+          {/* Brokers section - /brokers/* */}
+          <Route path="/brokers" element={<BrokerGuide />} />
           
-          {/* Guides section - with shared layout */}
+          {/* Guides section - /guides/* with shared layout */}
           <Route element={<SectionLayout />}>
-            <Route path="/education" element={<Education />} />
-            <Route path="/education/market-basics" element={<MarketBasics />} />
-            <Route path="/education/strategy" element={<Strategy />} />
-            <Route path="/education/risk" element={<Risk />} />
-            <Route path="/education/why-mt5" element={<WhyMT5 />} />
-            <Route path="/education/before-mt5" element={<BeforeMT5 />} />
-            <Route path="/guide/mt5-manual" element={<MT5Manual />} />
-            <Route path="/guide/mt5-pc" element={<MT5PCGuide />} />
-            <Route path="/guide/mt5-mobile" element={<MT5MobileGuide />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/roadmap" element={<Roadmap />} />
+            <Route path="/guides" element={<Education />} />
+            <Route path="/guides/market-basics" element={<MarketBasics />} />
+            <Route path="/guides/strategy" element={<Strategy />} />
+            <Route path="/guides/risk" element={<Risk />} />
+            <Route path="/guides/why-mt5" element={<WhyMT5 />} />
+            <Route path="/guides/before-mt5" element={<BeforeMT5 />} />
+            <Route path="/guides/mt5-manual" element={<MT5Manual />} />
+            <Route path="/guides/mt5-pc" element={<MT5PCGuide />} />
+            <Route path="/guides/mt5-mobile" element={<MT5MobileGuide />} />
+            <Route path="/guides/resources" element={<Resources />} />
+            <Route path="/guides/roadmap" element={<Roadmap />} />
           </Route>
           
           {/* Standalone pages */}

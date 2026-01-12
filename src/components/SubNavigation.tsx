@@ -4,41 +4,35 @@ import { cn } from "@/lib/utils";
 // 대분류별 중분류 메뉴 정의
 const subNavigationMap: Record<string, { label: string; href: string }[]> = {
   today: [
-    { label: "오늘의 시장 요약", href: "/dashboard" },
-    { label: "오늘의 핵심 경고", href: "/dashboard#warning" },
+    { label: "오늘의 시장 요약", href: "/today" },
+    { label: "오늘의 핵심 경고", href: "/today#warning" },
   ],
   markets: [
-    { label: "Top 6 Dashboard", href: "/dashboard" },
-    { label: "Nasdaq", href: "/dashboard#nasdaq" },
-    { label: "S&P 500", href: "/dashboard#sp500" },
-    { label: "Oil", href: "/dashboard#oil" },
-    { label: "Gold", href: "/dashboard#gold" },
-    { label: "Rates", href: "/dashboard#rates" },
+    { label: "Top 6 Dashboard", href: "/markets" },
+    { label: "Nasdaq", href: "/markets#nasdaq" },
+    { label: "S&P 500", href: "/markets#sp500" },
+    { label: "Oil", href: "/markets#oil" },
+    { label: "Gold", href: "/markets#gold" },
+    { label: "Rates", href: "/markets#rates" },
   ],
   brokers: [
-    { label: "브로커 선택 기준", href: "/broker-guide#criteria" },
-    { label: "시장 상황별 가이드", href: "/broker-guide#market-guide" },
-    { label: "브로커 리스트", href: "/broker-guide#list" },
+    { label: "브로커 선택 기준", href: "/brokers#criteria" },
+    { label: "시장 상황별 가이드", href: "/brokers#market-guide" },
+    { label: "브로커 리스트", href: "/brokers#list" },
   ],
   guides: [
-    { label: "초보자 가이드", href: "/education" },
-    { label: "거래 환경 이해", href: "/guide/mt5-pc" },
-    { label: "리스크 관리", href: "/education/risk" },
+    { label: "초보자 가이드", href: "/guides" },
+    { label: "거래 환경 이해", href: "/guides/mt5-pc" },
+    { label: "리스크 관리", href: "/guides/risk" },
   ],
 };
 
 // 경로에 따른 현재 대분류 결정
 function getCurrentCategory(pathname: string): string | null {
-  if (pathname === "/dashboard") return "today";
-  if (pathname.startsWith("/broker-guide")) return "brokers";
-  if (
-    pathname.startsWith("/education") ||
-    pathname.startsWith("/guide") ||
-    pathname.startsWith("/resources") ||
-    pathname.startsWith("/roadmap")
-  ) {
-    return "guides";
-  }
+  if (pathname.startsWith("/today")) return "today";
+  if (pathname.startsWith("/markets")) return "markets";
+  if (pathname.startsWith("/brokers")) return "brokers";
+  if (pathname.startsWith("/guides")) return "guides";
   return null;
 }
 

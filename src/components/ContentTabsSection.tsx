@@ -16,14 +16,14 @@ const contentByTab: Record<string, { title: string; desc: string; date?: string;
     { title: "새해 브로커 스케줄 안내", desc: "1월 첫째 주 거래시간 변경 사항", date: "2025.01.01", tag: "공지", link: "/blog" },
   ],
   guides: [
-    { title: "MT5 처음 설치부터 첫 거래까지", desc: "완전 초보자를 위한 단계별 가이드", tag: "입문", link: "/guide/mt5-pc" },
-    { title: "EA 백테스트 제대로 하는 법", desc: "Tick Data Suite 없이도 신뢰할 수 있는 테스트", tag: "중급", link: "/education" },
-    { title: "VPS 선택과 설정 가이드", desc: "지연시간, 위치, 비용 기준 비교", tag: "고급", link: "/education" },
+    { title: "MT5 처음 설치부터 첫 거래까지", desc: "완전 초보자를 위한 단계별 가이드", tag: "입문", link: "/guides/mt5-pc" },
+    { title: "EA 백테스트 제대로 하는 법", desc: "Tick Data Suite 없이도 신뢰할 수 있는 테스트", tag: "중급", link: "/guides" },
+    { title: "VPS 선택과 설정 가이드", desc: "지연시간, 위치, 비용 기준 비교", tag: "고급", link: "/guides" },
   ],
   strategies: [
-    { title: "NQ 아시안 세션 브레이크아웃", desc: "아시안 레인지 돌파 전략, 백테스트 3년 데이터", tag: "검증됨", link: "/marketplace" },
-    { title: "ES 변동성 수축 패턴", desc: "ATR 기반 진입, 드로우다운 10% 이내", tag: "검증됨", link: "/marketplace" },
-    { title: "골드 스윙 추세 추종", desc: "4시간봉 기반 중기 전략", tag: "베타", link: "/marketplace" },
+    { title: "NQ 아시안 세션 브레이크아웃", desc: "아시안 레인지 돌파 전략, 백테스트 3년 데이터", tag: "검증됨", link: "/markets" },
+    { title: "ES 변동성 수축 패턴", desc: "ATR 기반 진입, 드로우다운 10% 이내", tag: "검증됨", link: "/markets" },
+    { title: "골드 스윙 추세 추종", desc: "4시간봉 기반 중기 전략", tag: "베타", link: "/markets" },
   ],
   issues: [
     { title: "스프레드 확대 시 EA 동작 이슈", desc: "뉴스 시간대 필터 필수, 최대 스프레드 설정법", tag: "주의", link: "/blog" },

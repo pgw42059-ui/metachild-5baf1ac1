@@ -13,7 +13,7 @@ const steps = [
       "스프레드와 슬리피지 개념",
       "레버리지의 원리와 위험",
     ],
-    link: "/education/market-basics",
+    link: "/guides/market-basics",
     color: "text-blue-400",
     bgColor: "from-blue-500/10 to-blue-600/5",
   },
@@ -28,7 +28,7 @@ const steps = [
       "손익비와 승률의 관계",
       "전략 백테스트 기초",
     ],
-    link: "/education/strategy",
+    link: "/guides/strategy",
     color: "text-primary",
     bgColor: "from-primary/10 to-primary/5",
   },
@@ -43,7 +43,7 @@ const steps = [
       "일일/주간 손실 한도",
       "자본 보호를 위한 규칙",
     ],
-    link: "/education/risk",
+    link: "/guides/risk",
     color: "text-amber-400",
     bgColor: "from-amber-500/10 to-amber-600/5",
   },
@@ -58,7 +58,7 @@ const steps = [
       "파라미터 조정 기초",
       "실전 전 체크리스트",
     ],
-    link: "/guide/mt5-pc",
+    link: "/guides/mt5-pc",
     color: "text-emerald-400",
     bgColor: "from-emerald-500/10 to-emerald-600/5",
   },
@@ -141,7 +141,7 @@ export default function Roadmap() {
             어디서부터 시작해야 할지 모르겠다면
           </p>
           <Link
-            to="/guide/mt5-pc"
+            to="/guides/mt5-pc"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
           >
             MT5 기초 가이드부터 시작하기

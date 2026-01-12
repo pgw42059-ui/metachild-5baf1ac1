@@ -203,7 +203,7 @@ export function ToolsResourcesSection() {
         {/* View All Button */}
         <div className="text-center mt-10">
           <Button asChild variant="outline" size="sm">
-            <Link to="/resources" className="gap-2">
+            <Link to="/guides/resources" className="gap-2">
               전체 자료 보기 <ArrowRight className="w-4 h-4" />
             </Link>
           </Button>
