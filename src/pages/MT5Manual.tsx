@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, CheckCircle2, ArrowRight, Download, Monitor, Settings, BarChart3, MousePointer, Bot, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -93,34 +91,31 @@ const CodeTag = ({ children }: { children: React.ReactNode }) => (
 
 const MT5Manual = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
-          {/* Page Header */}
-          <div className="mb-10 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
-              <Monitor className="w-4 h-4" />
-              PC 버전
-            </div>
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              MT5 사용 설명서
-            </h1>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              아무것도 모르는 상태에서, 실수 없이 MT5를 실행하기 위한
-              최소한의 클릭 가이드입니다.
-            </p>
-            
-            {/* Mobile Guide Link */}
-            <Link 
-              to="/guide/mt5-mobile" 
-              className="inline-flex items-center gap-2 mt-6 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Smartphone className="w-4 h-4" />
-              모바일 버전 가이드 보기 →
-            </Link>
+    <>
+      <div className="container mx-auto px-4 max-w-3xl">
+        {/* Page Header */}
+        <div className="mb-10 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
+            <Monitor className="w-4 h-4" />
+            PC 버전
           </div>
+          <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+            MT5 사용 설명서
+          </h1>
+          <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+            아무것도 모르는 상태에서, 실수 없이 MT5를 실행하기 위한
+            최소한의 클릭 가이드입니다.
+          </p>
+          
+          {/* Mobile Guide Link */}
+          <Link 
+            to="/guide/mt5-mobile" 
+            className="inline-flex items-center gap-2 mt-6 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Smartphone className="w-4 h-4" />
+            모바일 버전 가이드 보기 →
+          </Link>
+        </div>
 
           {/* Table of Contents */}
           <nav className="mb-10 p-5 rounded-xl bg-secondary/30 border border-border/40">
@@ -373,10 +368,8 @@ const MT5Manual = () => {
             </Link>
           </div>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

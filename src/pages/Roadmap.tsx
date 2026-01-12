@@ -1,5 +1,3 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { BookOpen, Target, Shield, Cpu, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -68,22 +66,19 @@ const steps = [
 
 export default function Roadmap() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="pt-24 pb-16">
-        <div className="container px-4">
-          {/* Hero Section */}
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              학습 로드맵
-            </h1>
-            <p className="text-muted-foreground">
-              MT5와 자동매매를 이해하기 위한 4단계 학습 경로입니다.
-              <br />
-              순서대로 따라가도 되고, 필요한 부분만 선택해도 됩니다.
-            </p>
-          </div>
+    <>
+      <div className="container px-4">
+        {/* Hero Section */}
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            학습 로드맵
+          </h1>
+          <p className="text-muted-foreground">
+            MT5와 자동매매를 이해하기 위한 4단계 학습 경로입니다.
+            <br />
+            순서대로 따라가도 되고, 필요한 부분만 선택해도 됩니다.
+          </p>
+        </div>
 
           {/* Progress Indicator */}
           <div className="hidden md:flex justify-center mb-12">
@@ -155,9 +150,7 @@ export default function Roadmap() {
             </Link>
           </div>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </>
   );
 }

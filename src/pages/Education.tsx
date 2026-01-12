@@ -1,6 +1,3 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { SubNavigation } from "@/components/SubNavigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -18,10 +15,7 @@ import {
 
 const Education = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <SubNavigation />
-      <main className="pt-28">
+    <>
         {/* Hero */}
         <section className="py-16 border-b border-border/50">
           <div className="container px-4">
@@ -433,9 +427,7 @@ const Education = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

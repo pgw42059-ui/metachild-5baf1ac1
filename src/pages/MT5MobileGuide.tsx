@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { AlertTriangle, CheckCircle2, ArrowRight, Smartphone, Eye, Bell, Monitor, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -91,34 +89,31 @@ const MistakeItem = ({ children }: { children: React.ReactNode }) => (
 
 const MT5MobileGuide = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 max-w-3xl">
-          {/* Page Header */}
-          <div className="mb-10 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
-              <Smartphone className="w-4 h-4" />
-              모바일 버전
-            </div>
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              MT5 모바일 가이드
-            </h1>
-            <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              모바일 MT5는 <strong className="text-foreground">모니터링 전용</strong>입니다.<br />
-              EA 실행, 최적화, 복잡한 분석은 PC에서만 가능합니다.
-            </p>
-            
-            {/* PC Guide Link */}
-            <Link 
-              to="/guide/mt5-manual" 
-              className="inline-flex items-center gap-2 mt-6 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Monitor className="w-4 h-4" />
-              PC 버전 가이드 보기 →
-            </Link>
+    <>
+      <div className="container mx-auto px-4 max-w-3xl">
+        {/* Page Header */}
+        <div className="mb-10 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4">
+            <Smartphone className="w-4 h-4" />
+            모바일 버전
           </div>
+          <h1 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+            MT5 모바일 가이드
+          </h1>
+          <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+            모바일 MT5는 <strong className="text-foreground">모니터링 전용</strong>입니다.<br />
+            EA 실행, 최적화, 복잡한 분석은 PC에서만 가능합니다.
+          </p>
+          
+          {/* PC Guide Link */}
+          <Link 
+            to="/guide/mt5-manual" 
+            className="inline-flex items-center gap-2 mt-6 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Monitor className="w-4 h-4" />
+            PC 버전 가이드 보기 →
+          </Link>
+        </div>
 
           {/* Important Notice */}
           <div className="mb-10 p-5 rounded-xl bg-primary/5 border border-primary/20">
@@ -315,10 +310,8 @@ const MT5MobileGuide = () => {
             </Link>
           </div>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

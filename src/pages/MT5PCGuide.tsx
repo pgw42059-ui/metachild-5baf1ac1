@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Monitor, Smartphone, ArrowRight, Download, LogIn, LayoutDashboard, BarChart3, ShoppingCart, Settings, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -66,8 +64,7 @@ const steps = [
 
 const MT5PCGuide = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <>
       
       {/* Hero Section */}
       <section className="pt-28 pb-16 md:pt-32 md:pb-20">
@@ -185,9 +182,7 @@ const MT5PCGuide = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 
