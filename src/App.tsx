@@ -3,7 +3,14 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SectionLayout } from "@/layouts/SectionLayout";
+
+// Layouts
+import { TodayLayout } from "@/layouts/TodayLayout";
+import { MarketsLayout } from "@/layouts/MarketsLayout";
+import { BrokersLayout } from "@/layouts/BrokersLayout";
+import { GuidesLayout } from "@/layouts/GuidesLayout";
+
+// Pages
 import Index from "./pages/Index";
 import Education from "./pages/Education";
 import Marketplace from "./pages/Marketplace";
@@ -45,17 +52,23 @@ const App = () => (
           <Route path="/start" element={<Start />} />
           <Route path="/about" element={<About />} />
           
-          {/* Today section - /today/* */}
-          <Route path="/today" element={<MarketDashboard />} />
+          {/* Today section - /today/* with TodayLayout */}
+          <Route element={<TodayLayout />}>
+            <Route path="/today" element={<MarketDashboard />} />
+          </Route>
           
-          {/* Markets section - /markets/* */}
-          <Route path="/markets" element={<Marketplace />} />
+          {/* Markets section - /markets/* with MarketsLayout */}
+          <Route element={<MarketsLayout />}>
+            <Route path="/markets" element={<Marketplace />} />
+          </Route>
           
-          {/* Brokers section - /brokers/* */}
-          <Route path="/brokers" element={<BrokerGuide />} />
+          {/* Brokers section - /brokers/* with BrokersLayout */}
+          <Route element={<BrokersLayout />}>
+            <Route path="/brokers" element={<BrokerGuide />} />
+          </Route>
           
-          {/* Guides section - /guides/* with shared layout */}
-          <Route element={<SectionLayout />}>
+          {/* Guides section - /guides/* with GuidesLayout */}
+          <Route element={<GuidesLayout />}>
             <Route path="/guides" element={<Education />} />
             <Route path="/guides/market-basics" element={<MarketBasics />} />
             <Route path="/guides/strategy" element={<Strategy />} />
