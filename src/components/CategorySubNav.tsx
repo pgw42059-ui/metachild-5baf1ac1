@@ -1,14 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-export type CategoryType = "today" | "markets" | "brokers" | "guides";
+export type CategoryType = "markets" | "ea" | "brokers" | "guides";
 
 // 대분류별 중분류 메뉴 정의
 const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> = {
-  today: [
-    { label: "오늘의 시장 요약", href: "/today" },
-    { label: "오늘의 핵심 경고", href: "/today#warning" },
-  ],
   markets: [
     { label: "Top 6 Dashboard", href: "/markets/overview" },
     { label: "Nasdaq", href: "/markets/nasdaq" },
@@ -16,6 +12,11 @@ const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> 
     { label: "Oil", href: "/markets/oil" },
     { label: "Gold", href: "/markets/gold" },
     { label: "Rates", href: "/markets/rates" },
+  ],
+  ea: [
+    { label: "EA 목록", href: "/ea" },
+    { label: "사용 가이드", href: "/ea/usage-guide" },
+    { label: "백테스트 가이드", href: "/ea/backtest" },
   ],
   brokers: [
     { label: "브로커 선택 기준", href: "/brokers#criteria" },

@@ -4,8 +4,8 @@ import { ChevronRight, Home } from "lucide-react";
 // Route segment to label mapping
 const segmentLabels: Record<string, string> = {
   // Main categories
-  "today": "Today",
   "markets": "Markets",
+  "ea": "EA",
   "brokers": "Brokers",
   "guides": "Guides",
   
@@ -16,6 +16,10 @@ const segmentLabels: Record<string, string> = {
   "oil": "Oil",
   "gold": "Gold",
   "rates": "Rates",
+  
+  // EA sub-routes
+  "usage-guide": "사용 가이드",
+  "backtest": "백테스트 가이드",
   
   // Brokers sub-routes
   "criteria": "선택 기준",

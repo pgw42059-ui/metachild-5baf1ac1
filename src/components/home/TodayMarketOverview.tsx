@@ -100,13 +100,13 @@ const TodayMarketOverview = () => {
                   </div>
                 </div>
 
-                {/* CTA */}
-                <Link to="/markets">
-                  <Button variant="outline" className="group">
-                    자세히 보기
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+            {/* CTA */}
+            <Link to="/markets/overview">
+              <Button variant="outline" className="group">
+                자세히 보기
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
               </div>
             </div>
 
@@ -120,13 +120,13 @@ const TodayMarketOverview = () => {
                   <h2 className="font-semibold text-foreground">Top 6 선물</h2>
                   <p className="text-xs text-muted-foreground">주요 종목 상태 요약</p>
                 </div>
-                <Link 
-                  to="/markets" 
-                  className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
-                >
-                  전체 보기
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+            <Link 
+              to="/markets/overview" 
+              className="text-sm text-primary hover:text-primary/80 transition-colors flex items-center gap-1"
+            >
+              전체 보기
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
               </div>
               <CompactFuturesGrid />
             </div>
