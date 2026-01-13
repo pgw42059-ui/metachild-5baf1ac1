@@ -5,8 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Layouts
-import { TodayLayout } from "@/layouts/TodayLayout";
 import { MarketsLayout } from "@/layouts/MarketsLayout";
+import { EALayout } from "@/layouts/EALayout";
 import { BrokersLayout } from "@/layouts/BrokersLayout";
 import { GuidesLayout } from "@/layouts/GuidesLayout";
 
@@ -21,6 +21,11 @@ import SP500Page from "./pages/markets/SP500";
 import OilPage from "./pages/markets/Oil";
 import GoldPage from "./pages/markets/Gold";
 import RatesPage from "./pages/markets/Rates";
+// EA pages
+import EAOverview from "./pages/ea/Overview";
+import EAUsageGuide from "./pages/ea/UsageGuide";
+import EABacktest from "./pages/ea/Backtest";
+
 import MT5PCGuide from "./pages/MT5PCGuide";
 import MT5MobileGuide from "./pages/MT5MobileGuide";
 import Resources from "./pages/Resources";
@@ -39,7 +44,6 @@ import Roadmap from "./pages/Roadmap";
 import Start from "./pages/Start";
 import Gateway from "./pages/Gateway";
 import About from "./pages/About";
-import MarketDashboard from "./pages/MarketDashboard";
 import BrokerGuide from "./pages/BrokerGuide";
 import NotFound from "./pages/NotFound";
 
@@ -58,11 +62,6 @@ const App = () => (
           <Route path="/start" element={<Start />} />
           <Route path="/about" element={<About />} />
           
-          {/* Today section - /today/* with TodayLayout */}
-          <Route element={<TodayLayout />}>
-            <Route path="/today" element={<MarketDashboard />} />
-          </Route>
-          
           {/* Markets section - /markets/* with MarketsLayout */}
           <Route element={<MarketsLayout />}>
             <Route path="/markets" element={<MarketsOverview />} />
@@ -73,6 +72,15 @@ const App = () => (
             <Route path="/markets/gold" element={<GoldPage />} />
             <Route path="/markets/rates" element={<RatesPage />} />
           </Route>
+          
+          {/* EA section - /ea/* with EALayout */}
+          <Route element={<EALayout />}>
+            <Route path="/ea" element={<EAOverview />} />
+            <Route path="/ea/usage-guide" element={<EAUsageGuide />} />
+            <Route path="/ea/backtest" element={<EABacktest />} />
+          </Route>
+          
+          {/* Brokers section */}
           <Route element={<BrokersLayout />}>
             <Route path="/brokers" element={<BrokerGuide />} />
           </Route>

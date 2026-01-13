@@ -12,14 +12,14 @@ const mainCategories = [
     matchPaths: ["/", "/gateway", "/start", "/about"]
   },
   { 
-    label: "Today", 
-    href: "/today",
-    matchPaths: ["/today"]
-  },
-  { 
     label: "Markets", 
     href: "/markets",
     matchPaths: ["/markets"]
+  },
+  { 
+    label: "EA", 
+    href: "/ea",
+    matchPaths: ["/ea"]
   },
   { 
     label: "Brokers", 

@@ -1,18 +1,20 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CategorySubNav } from "@/components/CategorySubNav";
+import { CategorySubNav, CategoryType } from "@/components/CategorySubNav";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Outlet } from "react-router-dom";
 
-interface TodayLayoutProps {
+interface EALayoutProps {
   children?: React.ReactNode;
 }
 
-export function TodayLayout({ children }: TodayLayoutProps) {
+export function EALayout({ children }: EALayoutProps) {
+  const category: CategoryType = "ea";
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <CategorySubNav category="today" />
+      <CategorySubNav category={category} />
       
       <main className="pt-28 pb-16">
         <div className="container px-4">
