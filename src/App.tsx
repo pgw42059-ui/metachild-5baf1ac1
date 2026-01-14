@@ -9,6 +9,7 @@ import { MarketsLayout } from "@/layouts/MarketsLayout";
 import { EALayout } from "@/layouts/EALayout";
 import { BrokersLayout } from "@/layouts/BrokersLayout";
 import { GuidesLayout } from "@/layouts/GuidesLayout";
+import LabLayout from "@/layouts/LabLayout";
 
 // Pages
 import Index from "./pages/Index";
@@ -25,6 +26,9 @@ import RatesPage from "./pages/markets/Rates";
 import EAOverview from "./pages/ea/Overview";
 import EAUsageGuide from "./pages/ea/UsageGuide";
 import EABacktest from "./pages/ea/Backtest";
+// Lab pages
+import LabOverview from "./pages/lab/Overview";
+import RegimeHistory from "./pages/lab/RegimeHistory";
 
 import MT5PCGuide from "./pages/MT5PCGuide";
 import MT5MobileGuide from "./pages/MT5MobileGuide";
@@ -98,6 +102,12 @@ const App = () => (
             <Route path="/guides/mt5-mobile" element={<MT5MobileGuide />} />
             <Route path="/guides/resources" element={<Resources />} />
             <Route path="/guides/roadmap" element={<Roadmap />} />
+          </Route>
+          
+          {/* Lab section - /lab/* with LabLayout */}
+          <Route element={<LabLayout />}>
+            <Route path="/lab" element={<LabOverview />} />
+            <Route path="/lab/regime-history" element={<RegimeHistory />} />
           </Route>
           
           {/* Standalone pages */}

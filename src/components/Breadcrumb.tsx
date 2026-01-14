@@ -8,6 +8,7 @@ const segmentLabels: Record<string, string> = {
   "ea": "EA",
   "brokers": "Brokers",
   "guides": "Guides",
+  "lab": "Lab",
   
   // Markets sub-routes
   "overview": "Top 6 Dashboard",
@@ -37,6 +38,9 @@ const segmentLabels: Record<string, string> = {
   "mt5-manual": "MT5 사용 설명서",
   "resources": "자료실",
   "roadmap": "학습 로드맵",
+  
+  // Lab sub-routes
+  "regime-history": "레짐 히스토리",
 };
 
 interface BreadcrumbItem {
