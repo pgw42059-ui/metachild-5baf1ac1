@@ -3,8 +3,8 @@ import { ArrowRight, TrendingUp, Minus, TrendingDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import DailyWarning from "@/components/dashboard/DailyWarning";
 import CompactFuturesGrid from "./CompactFuturesGrid";
+import MarketBiasIndicator from "./MarketBiasIndicator";
 import { Button } from "@/components/ui/button";
-
 type MarketRegime = "risk-on" | "neutral" | "risk-off";
 
 const regimeConfigs: Record<MarketRegime, {
@@ -109,6 +109,9 @@ const TodayMarketOverview = () => {
             </Link>
               </div>
             </div>
+
+            {/* Market Bias & Volatility */}
+            <MarketBiasIndicator />
 
             {/* Daily Warning */}
             <DailyWarning />
