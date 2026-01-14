@@ -4,7 +4,7 @@ import { useState } from "react";
 import logoMark from "@/assets/logo-mark.png";
 import { cn } from "@/lib/utils";
 
-// 5개 대분류 메뉴 - 사이트 지도 역할
+// 6개 대분류 메뉴 - 사이트 지도 역할
 const mainCategories = [
   { 
     label: "Home", 
@@ -30,6 +30,11 @@ const mainCategories = [
     label: "Guides", 
     href: "/guides",
     matchPaths: ["/guides"]
+  },
+  { 
+    label: "Lab", 
+    href: "/lab",
+    matchPaths: ["/lab"]
   },
 ];
 

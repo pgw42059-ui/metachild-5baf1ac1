@@ -68,6 +68,39 @@ export type Database = {
         }
         Relationships: []
       }
+      market_regime_history: {
+        Row: {
+          bias: string | null
+          created_at: string
+          day: string
+          id: string
+          note: string | null
+          regime: string
+          updated_at: string
+          volatility: string | null
+        }
+        Insert: {
+          bias?: string | null
+          created_at?: string
+          day: string
+          id?: string
+          note?: string | null
+          regime: string
+          updated_at?: string
+          volatility?: string | null
+        }
+        Update: {
+          bias?: string | null
+          created_at?: string
+          day?: string
+          id?: string
+          note?: string | null
+          regime?: string
+          updated_at?: string
+          volatility?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

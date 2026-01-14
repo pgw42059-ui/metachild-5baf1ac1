@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-export type CategoryType = "markets" | "ea" | "brokers" | "guides";
+export type CategoryType = "markets" | "ea" | "brokers" | "guides" | "lab";
 
 // 대분류별 중분류 메뉴 정의
 const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> = {
@@ -27,6 +27,10 @@ const subNavigationMap: Record<CategoryType, { label: string; href: string }[]> 
     { label: "초보자 가이드", href: "/guides" },
     { label: "거래 환경 이해", href: "/guides/mt5-pc" },
     { label: "리스크 관리", href: "/guides/risk" },
+  ],
+  lab: [
+    { label: "Lab 홈", href: "/lab" },
+    { label: "레짐 히스토리", href: "/lab/regime-history" },
   ],
 };
 
